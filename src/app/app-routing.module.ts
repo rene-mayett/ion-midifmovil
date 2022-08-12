@@ -31,6 +31,26 @@ const routes: Routes = [
     path: 'centros',
     loadChildren: () => import('./pages/centros/centros.module').then( m => m.CentrosPageModule)
   },
+  {
+    path: 'leona-tabs',
+    loadChildren: () => import('./leona-tabs/leona-tabs.module').then( m => m.LeonaTabsPageModule)
+  },
+  {
+    path: 'leona-notificaciones',
+    loadChildren: () => import('./pages/leona-notificaciones/leona-notificaciones.module').then( m => m.LeonaNotificacionesPageModule)
+  },
+  {
+    path: 'leona-perfil',
+    loadChildren: () => import('./pages/leona-perfil/leona-perfil.module').then( m => m.LeonaPerfilPageModule)
+  },
+  {
+    path: 'leona-renovacion',
+    loadChildren: () => import('./pages/leona-renovacion/leona-renovacion.module').then( m => m.LeonaRenovacionPageModule)
+  },
+  {
+    path: 'leona-atenciones',
+    loadChildren: () => import('./pages/leona-atenciones/leona-atenciones.module').then( m => m.LeonaAtencionesPageModule)
+  },
 ];
 
 @NgModule({

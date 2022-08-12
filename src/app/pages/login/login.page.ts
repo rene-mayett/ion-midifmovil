@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
         if (this.usuario.curp == res[0].curp && this.usuario.idp == res[0].idp) {
           this.presentToast();
           //this.errorToast();
-          this.router.navigate(['']);
+          this.router.navigate(['leona-tabs']);
         }
       }
     },
@@ -64,9 +64,11 @@ export class LoginPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Bienvenido, inicio de sesión exitoso',
+      message: '¡Bienvenido! ',
       color: 'success',
-      duration: 2500
+      duration: 2500,
+      icon: 'checkmark-outline'
+      //position: 'top'
     });
     toast.present();
   }
@@ -75,7 +77,8 @@ export class LoginPage implements OnInit {
     const toast = await this.toastController.create({
       message: 'CURP o IDP incorrectos, verifique los datos e intente de nuevo por favor.',
       color: 'warning',
-      duration: 5000
+      duration: 5000,
+      icon: 'warning-outline'
     });
     toast.present();
   }
