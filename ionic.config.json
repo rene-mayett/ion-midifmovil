@@ -1,0 +1,7 @@
+{
+  "name": "mi-dif-movil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

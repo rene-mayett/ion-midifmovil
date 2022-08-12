@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/leona" class="rojo">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">
+      <img src="assets/header_logo.svg">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div style="min-height: 30vh;margin-top: 50px; text-align: center;">
+    <ion-icon name="person-circle-outline" style="zoom:10.0;" class="rojo"></ion-icon>
+  </div>
+  
+ <form #login="ngForm" (ngSubmit)="onSubmit()">
+
+  <ion-item>
+    <ion-label position="floating">CURP:</ion-label>
+    <ion-input type="text"
+               minlength="18"
+               maxlength="18"
+               name="curp"
+               [(ngModel)]="usuario.curp" 
+               required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">IDP:</ion-label>
+    <ion-input type="number" 
+               name="idp"
+               maxlength="5"
+               [(ngModel)]="usuario.idp"
+               required></ion-input>
+  </ion-item>
+  <br>
+  <ion-button [disabled]="login.invalid" type="submit" color="danger" expand="block">Iniciar Sesión</ion-button>
+  <!--    <br><br><br><br><br>
+  <ion-list-header>
+    <ion-label>Valido: {{ login.valid }} </ion-label>
+  </ion-list-header> -->
+  
+ </form>
+
+</ion-content>
