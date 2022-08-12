@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from '../../services/api.service';
 
 @Component({
   selector: 'app-leona-perfil',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeonaPerfilPage implements OnInit {
 
-  constructor() { }
+  constructor(private APIService: APIService,) { }
+
+
 
   ngOnInit() {
+    // this.APIService.loginLeona(this.usuario).subscribe(res => {
+    //   if (res.length==0) {
+    //     this.errorToast();
+    //   }
   }
 
 }

@@ -16,13 +16,14 @@ export class LoginPage implements OnInit {
     curp: '',
     
   }
-  
   curp= '';
-  idp = 0;
-
-  result = []
+  idp = '';
   constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router) { }
   ngOnInit() {
+
+    if(localStorage.getItem('curp')&&localStorage.getItem('idp')){
+      this.router.navigate(['leona-tabs']);
+    }
 
   }
 
@@ -38,9 +39,11 @@ export class LoginPage implements OnInit {
         this.idp = res[0].idp;
         console.log(this.curp,this.idp);
         if (this.usuario.curp == res[0].curp && this.usuario.idp == res[0].idp) {
+          //localStorage.setItem('curp',this.curp);
+          localStorage.setItem('curp',this.curp);
+          localStorage.setItem('idp',this.idp);
           this.presentToast();
-          //this.errorToast();
-          this.router.navigate(['leona-tabs']);
+          this.router.navigate(['leona-tabs'],);
         }
       }
     },

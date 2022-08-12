@@ -14,4 +14,8 @@ export class APIService {
     return this.http.get(`${environment.APIurl}/login?curp=${usuario.curp}&idp=${usuario.idp}`);
   }
 
+  perfilLeona(usuario): Observable<any> {
+    return this.http.get(`${environment.APIurl}/menu?curp=${usuario.curp}`);
+  }
+
 }
