@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from '../../services/api.service';
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,10 +19,10 @@ export class LoginPage implements OnInit {
   }
   curp= '';
   idp = '';
-  constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router) { }
+  constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router,private loadingCtrl: LoadingController) { }
   ngOnInit() {
-
     if(localStorage.getItem('curp')&&localStorage.getItem('idp')){
+      this.showLoading();
       this.router.navigate(['leona-tabs']);
     }
 
@@ -84,6 +85,14 @@ export class LoginPage implements OnInit {
       icon: 'warning-outline'
     });
     toast.present();
+  }
+
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Cargando perfil...',
+      duration: 1500,
+    });
+    loading.present();
   }
 
 

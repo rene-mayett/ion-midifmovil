@@ -1,85 +1,89 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button class="rojo"></ion-menu-button>
-      </ion-buttons>     
-      <ion-title style="text-align: center;">
-        <img src="assets/header_logo.svg">
-      </ion-title>
-    </ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button class="rojo"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">
+      <img src="assets/header_logo.svg">
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-app>
 
-<ion-content class="ion-padding">
+  <ion-content class="ion-padding">
 
-  <ion-slides>
-    <ion-slide>
-      <div class="slide">
-        <img src="https://www.fideicomisoed.cdmx.gob.mx/storage/app/media/uploaded-files/2-1.png" />
-        <h2 class="dorado">Bienvenid@ a tu app!</h2>
-      </div>
-    </ion-slide>
+    <ion-slides pager="true">
+      <ion-slide>
+        <div class="slide">
+          <img src="https://www.fideicomisoed.cdmx.gob.mx/storage/app/media/uploaded-files/2-1.png" />
+          <h2 style="color: #bc955c;">¡ Bienvenidos !</h2>
+          <p style="font-weight: bold;">
+            Si eres beneficiario activo del programa podrás consultar tu estatus actual ...
+          </p>
+        </div>
+      </ion-slide>
 
-    <ion-slide>
-      <img src="https://www.fideicomisoed.cdmx.gob.mx/storage/app/media/uploaded-files/WhatsApp%20Image%202021-08-17%20at%202.32.20%20PM.jpeg" />
-      <h2>What is Ionic?</h2>
-      <p>
-        <b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps
-        with web technologies like HTML, CSS, and JavaScript.
-      </p>
-    </ion-slide>
+      <ion-slide>
+        <div class="slide">
+          <img src="https://www.fideicomisoed.cdmx.gob.mx/storage/app/media/uploaded-files/WhatsApp%20Image%202021-08-17%20at%202.32.20%20PM.jpeg" />
+          <h2 class="rojo">Renovación Digital</h2>
+          <p style="font-weight: bold;">
+            Realiza trámites como tu próxima renovación o también puedes solicitar algún servicio de atención integral ...
+          </p>
+        </div>
+      </ion-slide>
 
-    <ion-slide>
-      <img src="https://kidstudia.com/wp-content/uploads/2021/05/Beca-Leona-Vicario.jpg" />
-      <h2>What is Appflow?</h2>
-      <p>
-        <b>Appflow</b> is a powerful set of services and features built on top of Ionic Framework that brings a
-        totally new level of app development agility to mobile dev teams.
-      </p>
-    </ion-slide>
-  </ion-slides>
+      <ion-slide>
+        <div class="slide">
+        <img src="https://kidstudia.com/wp-content/uploads/2021/05/Beca-Leona-Vicario.jpg" />
+        <h2 class="rojo"> Notificaciones </h2>
+        <p style="font-weight: bold;">
+          Consulta las reglas de operación vigentes, recibe notificaciones, y mucho más!
+        </p>
+        </div>
+      </ion-slide>
+    </ion-slides>
 
-      <ion-col align-self-center>
-        <ion-button [routerLink]="['/login']" expand="block"  color="danger">Iniciar sesión</ion-button>
-      </ion-col>
+    <ion-col align-self-center>
+      <ion-button [routerLink]="['/login']" expand="block" color="primary">Iniciar sesión</ion-button>
+    </ion-col>
 
-</ion-content>
+  </ion-content>
 </ion-app>
 
 <style>
-ion-slides {
-  height: 80%;
-}
+  ion-slides {
+    height: 80%;
+  }
 
-.swiper-slide {
-  display: block;
-}
+  .swiper-slide {
+    display: block;
+  }
 
-.swiper-slide h2 {
-  margin-top: 2.8rem;
-}
+  .swiper-slide h2 {
+    margin-top: 2.8rem;
+  }
 
-.swiper-slide img {
-  max-height: 50%;
-  max-width: 80%;
-  margin: 60px 0 40px;
-  pointer-events: none;
-}
+  .swiper-slide img {
+    max-height: 50%;
+    max-width: 80%;
+    margin: 60px 0 40px;
+    pointer-events: none;
+  }
 
-b {
-  font-weight: 500;
-}
+  b {
+    font-weight: 500;
+  }
 
-p {
-  padding: 0 40px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--ion-color-step-600, #60646b);
-}
+  p {
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ion-color-step-600, #60646b);
+  }
 
-p b {
-  color: var(--ion-text-color, #000000);
-}
+  p b {
+    color: var(--ion-text-color, #000000);
+  }
 </style>
-
