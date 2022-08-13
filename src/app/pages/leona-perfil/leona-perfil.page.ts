@@ -10,10 +10,10 @@ export class LeonaPerfilPage implements OnInit {
 
   constructor(private APIService: APIService,) { }
 
-
-
+  curp = localStorage.getItem('curp');
+  idp = localStorage.getItem('idp');
   ngOnInit() {
-    // this.APIService.loginLeona(this.usuario).subscribe(res => {
+    // this.APIService.loginLeona(this.curp).subscribe(res => {
     //   if (res.length==0) {
     //     this.errorToast();
     //   }
