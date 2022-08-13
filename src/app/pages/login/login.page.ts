@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../../services/api.service';
-import { ToastController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
-import { LoadingController } from '@ionic/angular';
+import { ToastController,LoadingController,AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
 
   usuario = {
-    idp: 0,
+    idp: '',
     curp: '',
     
   }
@@ -21,7 +19,7 @@ export class LoginPage implements OnInit {
   idp = '';
   constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router,private loadingCtrl: LoadingController) { }
   ngOnInit() {
-    if(localStorage.getItem('curp')&&localStorage.getItem('idp')){
+    if(sessionStorage.getItem('curp')&&sessionStorage.getItem('idp')){
       this.showLoading();
       this.router.navigate(['leona-tabs']);
     }
@@ -30,7 +28,9 @@ export class LoginPage implements OnInit {
 
   onSubmit() {
     //console.log(this.usuario);
+    this.cargando();
     this.APIService.loginLeona(this.usuario).subscribe(res => {
+      //console.log(res);
       if (res.length==0) {
         this.errorToast();
       }
@@ -41,8 +41,8 @@ export class LoginPage implements OnInit {
         console.log(this.curp,this.idp);
         if (this.usuario.curp == res[0].curp && this.usuario.idp == res[0].idp) {
           //localStorage.setItem('curp',this.curp);
-          localStorage.setItem('curp',this.curp);
-          localStorage.setItem('idp',this.idp);
+          sessionStorage.setItem('curp',this.curp);
+          sessionStorage.setItem('idp',this.idp);
           this.presentToast();
           this.router.navigate(['leona-tabs'],);
         }
@@ -51,7 +51,6 @@ export class LoginPage implements OnInit {
       (err) => {
         console.log(err);
         this.errorAlert();
-        //this.presentToast();
       });
 
   }
@@ -95,6 +94,13 @@ export class LoginPage implements OnInit {
     loading.present();
   }
 
+  async cargando() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Conectando...',
+      duration: 900,
+    });
+    loading.present();
+  }
 
 
 }

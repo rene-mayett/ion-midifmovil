@@ -23,15 +23,18 @@
                minlength="18"
                maxlength="18"
                name="curp"
-               [(ngModel)]="usuario.curp" 
+               placeholder=""
+               [(ngModel)]="usuario.curp"
+               (ngModelChange)="usuario.curp = $event.toLocaleUpperCase()" 
                required></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">IDP:</ion-label>
-    <ion-input type="number" 
+    <ion-input type="number"
+               maxlength="5" 
                name="idp"
-               maxlength="5"
+               placeholder="( Sólo números )"
                [(ngModel)]="usuario.idp"
                required></ion-input>
   </ion-item>
