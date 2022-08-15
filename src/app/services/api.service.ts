@@ -18,4 +18,12 @@ export class APIService {
     return this.http.get(`${environment.APIurl}/menu?curp=${curp}`);
   }
 
+  perfilReno(curp): Observable<any>{
+    return this.http.get(`${environment.APIurl}/reno?curp=${curp}`)
+  }
+
+  perfilTutor(curp): Observable<any>{
+    return this.http.get(`${environment.APIurl}/tutor?curp=${curp}`)
+  }
+
 }

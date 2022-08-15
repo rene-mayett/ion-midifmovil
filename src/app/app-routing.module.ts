@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'leona-atenciones',
     loadChildren: () => import('./pages/leona-atenciones/leona-atenciones.module').then( m => m.LeonaAtencionesPageModule)
+  },  {
+    path: 'renovacion',
+    loadChildren: () => import('./pages/renovacion/renovacion.module').then( m => m.RenovacionPageModule)
   },
+
 ];
 
 @NgModule({

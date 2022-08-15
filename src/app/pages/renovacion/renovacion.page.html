@@ -1,0 +1,287 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" class="rojo">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button class="rojo"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="dorado" style="text-align: center;"><img src="assets/header_logo.svg"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Default title -->
+  <ion-toolbar>
+    <ion-title style="text-align: center;" class="dorado" size="large">Beca Leona Vicario</ion-title>
+    <ion-title size="small" style="text-align: center;" class="rojo">Seguna renovación 2022</ion-title>
+  </ion-toolbar>
+
+  <div class="ion-padding">
+    <p style="text-align: justify;">El siguiente cuestionario es totalmente confidencial y fue diseñado con el propósito
+      de renovar la permanencia a este programa,
+      por lo que el beneficiario declara los siguientes datos, bajo protesta de decir verdad.
+    </p>
+    <p style="text-align: justify;">La renovación es un requisito de permanencia en el programa, es responsabilidad del
+      tutor la captura de los datos bajo protesta de decir verdad.
+      La información y documentos cargados a la plataforma estan sujetos a revisión. Si se detecta falsedad en lo
+      declarado, en la documentación, o esta no cumple
+      con las características solicitadas, se procederá a la baja inmediata en el programa.
+    </p>
+    <p>Conteste con calma y verifique su información.</p>
+  </div>
+
+  <ion-text class="dorado" style="text-align: center;">
+    <h1>1. Datos Generales</h1>
+    <h2>1.1 Beneficiario(a)</h2>
+  </ion-text>
+
+  <ion-list style="text-align: center;">
+    <ion-item *ngFor="let user of usuarios">
+      <ion-label>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">Beneficiario:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;">{{user.nombre}} {{user.apellido_paterno}} {{user.apellido_materno}}
+        </h2>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">IDP:</ion-label>
+        </ion-item>
+        <h2>{{user.idp}}</h2>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">CURP:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;">{{user.curp}}</h2>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">Tutor:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;">{{tutor}}</h2>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">Domicilio:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;"> {{user.nombre_vialidad}} {{user.num_exterior}}
+          {{user.num_interior}} {{user.nombre_asentamiento}} {{user.delegacion}} {{user.codigo_postal}}</h2>
+      </ion-label>
+      <ion-label slot="end" class="slot-text-end"> </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-text class="dorado" style="text-align: center;">
+    <h2>1.2 Padre, Madre o Tutor</h2>
+  </ion-text>
+
+  <ion-list style="text-align: center;">
+    <ion-item *ngFor="let user of usuarios">
+      <ion-label>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">CURP:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;">{{user.curp_tutor}}</h2>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">Nombre:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;">{{user.nombre_tutor}}</h2>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">Apellido Paterno:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;">{{user.apellido_paterno_tutor}}</h2>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">Apellido Materno:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;">{{user.apellido_materno_tutor}}</h2>
+        <ion-item>
+          <ion-label class="ion-padding" position="stacked">Fecha de nacimiento:</ion-label>
+        </ion-item>
+        <h2 style="font-weight: 600; color:#d09c4e;"> {{user.fecha_nacimiento_tutor}}</h2>
+      </ion-label>
+      <ion-label slot="end" class="slot-text-end"> </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-text class="dorado" style="text-align: center;">
+    <h1>2. Datos de contacto:</h1>
+  </ion-text>
+
+  <form>
+    <ion-item>
+      <ion-label>Tipo de vialidad: </ion-label>
+      <ion-select value="peperoni" [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Selecciona">
+        <ion-select-option value="ANDADOR">Andador</ion-select-option>
+        <ion-select-option value="ANDEN">Anden</ion-select-option>
+        <ion-select-option value="AUTOPISTA">Autopista</ion-select-option>
+        <ion-select-option value="AVENIDA">Avenida</ion-select-option>
+        <ion-select-option value="BOULEVARD">Boulevard</ion-select-option>
+        <ion-select-option value="CALLE">Calle</ion-select-option>
+        <ion-select-option value="CALLEJON">Callejon</ion-select-option>
+        <ion-select-option value="CALZADA">Calzada</ion-select-option>
+        <ion-select-option value="CAMINO">Camino</ion-select-option>
+        <ion-select-option value="CANAL">Canal</ion-select-option>
+        <ion-select-option value="CARRETERA">Carretera</ion-select-option>
+        <ion-select-option value="CERRADA">Cerrada</ion-select-option>
+        <ion-select-option value="CIRCUITO">Circuito</ion-select-option>
+        <ion-select-option value="DIAGONAL">Diagonal</ion-select-option>
+        <ion-select-option value="EJE">Eje</ion-select-option>
+        <ion-select-option value="MIRADOR">Mirador</ion-select-option>
+        <ion-select-option value="PRIVADA">Privada</ion-select-option>
+        <ion-select-option value="PROLONGACION">Prolongacion</ion-select-option>
+        <ion-select-option value="RETORNO">Retorno</ion-select-option>
+        <ion-select-option value="RINCONADA">Rinconada</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre vialidad:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">No. Ext:</ion-label>
+      <ion-input type="email" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">No. Int:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tipo de asentamiento: </ion-label>
+      <ion-select value="peperoni" [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Selecciona">
+        <ion-select-option value="BARRIO">Barrio</ion-select-option>
+        <ion-select-option value="CAMPAMENTO">Campamento</ion-select-option>
+        <ion-select-option value="COLONIA">Colonia</ion-select-option>
+        <ion-select-option value="CONJUNTO">Conjunto Habitacional</ion-select-option>
+        <ion-select-option value="EJIDO">Ejido</ion-select-option>
+        <ion-select-option value="FRACCIONAMIENTO">Fraccionamiento</ion-select-option>
+        <ion-select-option value="PUEBLO">Pueblo</ion-select-option>
+        <ion-select-option value="RESIDENCIAL">Residencial</ion-select-option>
+        <ion-select-option value="UNIDAD">Unidad HAbitacional</ion-select-option>
+        <ion-select-option value="AMPLIACIÓN">Ampliación</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre de asentamiento:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Entre calle:</ion-label>
+      <ion-input type="email" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Y calle:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Correo electronico:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">C.P:</ion-label>
+      <ion-input type="email" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Tel. Casa:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Tel. Cel:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Tel. Recados 1:</ion-label>
+      <ion-input type="email" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Tel. Recados 2:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+  </form>
+
+  <ion-text class="dorado" style="text-align: center;">
+    <h1>3. Datos escolares:</h1>
+  </ion-text>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre de la escuela:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nivel: </ion-label>
+      <ion-select value="peperoni" [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Selecciona">
+        <ion-select-option value="P">PREESCOLAR</ion-select-option>
+        <ion-select-option value="P">PRIMARIA</ion-select-option>
+        <ion-select-option value="S">SECUNDARIA</ion-select-option>
+        <ion-select-option value="BP">BACHILLERATO/PREPARATORIA</ion-select-option>
+        <ion-select-option value="BP">CAM</ion-select-option>
+        <ion-select-option value="BP">NO ESTUDIA</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Grado°:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tipo de escuela: </ion-label>
+      <ion-select value="peperoni" [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Selecciona">
+        <ion-select-option value="P">PÚBLICA</ion-select-option>
+        <ion-select-option value="P">PRIVADA</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Clave de escuela:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Teléfono:</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-radio-group>
+        <ion-list-header>
+          <ion-label>
+            La niña, niño o adolescente realiza actividades extraescolares: 
+          </ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>SI</ion-label>
+          <ion-radio value="SI"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>NO</ion-label>
+          <ion-radio value="NO"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-list>
+      <ion-radio-group>
+        <ion-list-header>
+          <ion-label>
+           ¿La niña, niño o adolescente recibe Mi Beca Para Empezar?
+          </ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>SI</ion-label>
+          <ion-radio value="SI"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>NO</ion-label>
+          <ion-radio value="NO"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+
+
+  </form>
+
+</ion-content>
