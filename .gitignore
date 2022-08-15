@@ -4,7 +4,9 @@
 node_modules
 .DS_Store
 .angular
-
+www
+android
+ios
 # *~
 # *.sw[mnpcod]
 # .tmp

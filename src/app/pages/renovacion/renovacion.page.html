@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/" class="rojo">
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/" class="rojo" text="Atrás">
       </ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
@@ -14,11 +14,11 @@
 <ion-content>
   <!-- Default title -->
   <ion-toolbar>
-    <ion-title style="text-align: center;" class="dorado" size="large">Beca Leona Vicario</ion-title>
-    <ion-title size="small" style="text-align: center;" class="rojo">Seguna renovación 2022</ion-title>
+    <ion-title style="text-align: center;" class="dorado" size="large"><h1>Beca Leona Vicario</h1></ion-title>
   </ion-toolbar>
 
   <div class="ion-padding">
+    <ion-title size="small" style="text-align: center;" class="rojo"><h3>Seguna renovación 2022</h3></ion-title>
     <p style="text-align: justify;">El siguiente cuestionario es totalmente confidencial y fue diseñado con el propósito
       de renovar la permanencia a este programa,
       por lo que el beneficiario declara los siguientes datos, bajo protesta de decir verdad.
@@ -106,7 +106,7 @@
   <form>
     <ion-item>
       <ion-label>Tipo de vialidad: </ion-label>
-      <ion-select value="peperoni" [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Selecciona">
+      <ion-select interface="action-sheet" placeholder="Selecciona">
         <ion-select-option value="ANDADOR">Andador</ion-select-option>
         <ion-select-option value="ANDEN">Anden</ion-select-option>
         <ion-select-option value="AUTOPISTA">Autopista</ion-select-option>
@@ -145,7 +145,7 @@
 
     <ion-item>
       <ion-label>Tipo de asentamiento: </ion-label>
-      <ion-select value="peperoni" [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Selecciona">
+      <ion-select  interface="action-sheet" placeholder="Selecciona">
         <ion-select-option value="BARRIO">Barrio</ion-select-option>
         <ion-select-option value="CAMPAMENTO">Campamento</ion-select-option>
         <ion-select-option value="COLONIA">Colonia</ion-select-option>
@@ -208,7 +208,7 @@
 
     <ion-item>
       <ion-label>Nivel: </ion-label>
-      <ion-select value="peperoni" [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Selecciona">
+      <ion-select interface="action-sheet" placeholder="Selecciona">
         <ion-select-option value="P">PREESCOLAR</ion-select-option>
         <ion-select-option value="P">PRIMARIA</ion-select-option>
         <ion-select-option value="S">SECUNDARIA</ion-select-option>
@@ -224,7 +224,7 @@
 
     <ion-item>
       <ion-label>Tipo de escuela: </ion-label>
-      <ion-select value="peperoni" [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Selecciona">
+      <ion-select interface="action-sheet" placeholder="Selecciona">
         <ion-select-option value="P">PÚBLICA</ion-select-option>
         <ion-select-option value="P">PRIVADA</ion-select-option>
       </ion-select>
