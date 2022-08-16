@@ -32,6 +32,7 @@ export class LoginPage implements OnInit {
     this.APIService.loginLeona(this.usuario).subscribe(res => {
       //console.log(res);
       if (res.length==0) {
+
         this.errorToast();
       }
       else {
@@ -97,7 +98,7 @@ export class LoginPage implements OnInit {
   async cargando() {
     const loading = await this.loadingCtrl.create({
       message: 'Conectando...',
-      duration: 900,
+      duration: 500,
     });
     loading.present();
   }
