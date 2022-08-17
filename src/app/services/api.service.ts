@@ -19,12 +19,8 @@ export class APIService {
   }
 
   validaActivosRenovacion(curp): Observable<any> {
-    return this.http.get(`${environment.APIurl}/menu?curp=${curp}`); // RENE
+    return this.http.get(`${environment.APIurl}/idbaja?curp=${curp}`); // RENE
   }
-
-  // yaRenovo(curp): Observable<any> {
-  //   return this.http.get(`${environment.APIurl}/menu?curp=${curp}`); // RENE
-  // }
 
   perfilReno(curp): Observable<any>{
     return this.http.get(`${environment.APIurl}/reno?curp=${curp}`) // RAMON

@@ -70,8 +70,8 @@ export class LoginPage implements OnInit {
       message: '¡Bienvenido! ',
       color: 'success',
       duration: 2500,
-      icon: 'checkmark-outline'
-      //position: 'top'
+      icon: 'checkmark-outline',
+      position: 'middle'
     });
     toast.present();
   }
@@ -81,7 +81,7 @@ export class LoginPage implements OnInit {
       message: 'CURP o IDP incorrectos, verifique los datos e intente de nuevo por favor.',
       color: 'warning',
       duration: 5000,
-      icon: 'warning-outline'
+      icon: 'warning-outline',
     });
     toast.present();
   }

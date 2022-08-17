@@ -14,7 +14,7 @@
                   placeholder="Seleccione al beneficiario: " 
                   [(ngModel)]="userSelected">
              <!-- (ionChange)="check()" -->
-        <ion-select-option *ngFor="let user of usuarios" [value]="user">{{user.nombre}} {{user.apellido_paterno}} {{user.apellido_materno}}</ion-select-option>
+        <ion-select-option *ngFor="let user of usuarios" [value]="user">{{user.nombre_completo_nino}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>

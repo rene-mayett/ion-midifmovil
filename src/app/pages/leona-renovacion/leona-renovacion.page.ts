@@ -21,7 +21,7 @@ export class LeonaRenovacionPage implements OnInit {
     // this.usuarios = this.APIService.perfilLeona(this.curp);
     // console.log(this.usuarios);
     this.cargando();
-    this.APIService.perfilLeona(this.curp).subscribe(res => {
+    this.APIService.validaActivosRenovacion(this.curp).subscribe(res => {
         this.usuarios = res;
         console.log(this.usuarios);
 
