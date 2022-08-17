@@ -13,8 +13,8 @@ export class LoginPage implements OnInit {
   usuario = {
     idp: '',
     curp: '',
-    
   }
+
   curp= '';
   idp = '';
   constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router,private loadingCtrl: LoadingController) { }

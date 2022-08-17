@@ -17,14 +17,12 @@ export class RenovacionPage implements OnInit {
   usuarios;
   tutor;
   ngOnInit() {
-    // this.usuarios = this.APIService.perfilLeona(this.curp);
-    // console.log(this.usuarios);
-    this.cargando();
+
+    //this.cargando();
     this.APIService.perfilReno(this.curp).subscribe(res => {
         this.usuarios = res;
         console.log(this.usuarios);
-        this.tutor = this.usuarios[0].nombre_tutor+' '+this.usuarios[0].apellido_paterno_tutor + ' ' + this.usuarios[0].apellido_materno_tutor;
-        sessionStorage.setItem('tutor', this.tutor);
+        this.tutor = sessionStorage.getItem('tutor');
     },
     (err) => {
       console.log(err);
@@ -33,7 +31,7 @@ export class RenovacionPage implements OnInit {
       this.errorAlert();
     });
     
-    this.cargando();
+    //this.cargando();
     this.APIService.perfilTutor(this.curp).subscribe(res => {
         this.usuarios = res;
         console.log(this.usuarios);
@@ -46,7 +44,6 @@ export class RenovacionPage implements OnInit {
       sessionStorage.clear();
       this.errorAlert();
     });
-
 
   }
 
