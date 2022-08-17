@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'mi-dif-movil',
+  appId: 'com.dif.midifmovil',
+  appName: 'Mi DIF móvil',
   webDir: 'www',
   bundledWebRuntime: false
 };
