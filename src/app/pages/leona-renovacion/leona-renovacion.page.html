@@ -5,10 +5,22 @@
 </ion-header>
 
 <ion-content>
+  <br><br>
+  <ion-list>
+    <ion-item>
+      <ion-select interface="action-sheet" 
+                  cancelText="Cancelar" 
+                  placeholder="Seleccione al beneficiario: " 
+                  [(ngModel)]="userSelected">
+             <!-- (ionChange)="check()" -->
+        <ion-select-option *ngFor="let user of usuarios" [value]="user">{{user.nombre_completo_nino}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 
-  <ion-col align-self-center>
-    <ion-button [routerLink]="['/renovacion']" expand="block" color="primary">Comenzar renovación</ion-button>
-  </ion-col>
-
-
+  
+<br><br>
+  <ion-grid><ion-row style="text-align: center;"><ion-col>
+    <ion-button [disabled]="!userSelected" color="primary" (click)="check()">Comenzar renovación</ion-button>
+  </ion-col></ion-row></ion-grid>
 </ion-content>

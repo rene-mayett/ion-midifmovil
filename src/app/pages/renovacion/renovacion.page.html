@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" >
-      <ion-back-button defaultHref="/" class="rojo" text="Atrás">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/leona-tabs" class="rojo" text="Atrás">
       </ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
@@ -14,17 +14,17 @@
 <ion-content>
   <!-- Default title -->
   <ion-toolbar>
-    <ion-title style="text-align: center;" class="dorado" size="large"><h1>Beca Leona Vicario</h1></ion-title>
+    <ion-title style="text-align: center;" class="dorado" size="large">
+      <h1>Beca Leona Vicario</h1>
+    </ion-title>
   </ion-toolbar>
 
   <div class="ion-padding">
-    <ion-title size="small" style="text-align: center;" class="rojo"><h3>Seguna renovación 2022</h3></ion-title>
-    <p style="text-align: justify;">El siguiente cuestionario es totalmente confidencial y fue diseñado con el propósito
-      de renovar la permanencia a este programa,
-      por lo que el beneficiario declara los siguientes datos, bajo protesta de decir verdad.
-    </p>
-    <p style="text-align: justify;">La renovación es un requisito de permanencia en el programa, es responsabilidad del
-      tutor la captura de los datos bajo protesta de decir verdad.
+    <ion-title size="small" style="text-align: center;" class="rojo">
+      <h3>Segunda Renovación 2022</h3>
+    </ion-title>
+    <p style="text-align: justify;">La renovación es un requisito de permanencia en el programa, es responsabilidad de
+      {{tutor}} la captura de los datos bajo protesta de decir verdad.
       La información y documentos cargados a la plataforma estan sujetos a revisión. Si se detecta falsedad en lo
       declarado, en la documentación, o esta no cumple
       con las características solicitadas, se procederá a la baja inmediata en el programa.
@@ -41,29 +41,35 @@
     <ion-item *ngFor="let user of usuarios">
       <ion-label>
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Beneficiario:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Beneficiario:
+          </ion-label>
+          <h2>{{user.nombre}} {{user.apellido_paterno}} {{user.apellido_materno}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.nombre}} {{user.apellido_paterno}} {{user.apellido_materno}}
-        </h2>
+
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">IDP:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">IDP:</ion-label>
+          <h2>{{user.idp}}</h2><br>
         </ion-item>
-        <h2 class="dorado">{{user.idp}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">CURP:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">CURP:</ion-label>
+          <h2>{{user.curp}}</h2> <br>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.curp}}</h2>
+
+        <!-- <ion-item>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Tutor:</ion-label>
+          <h2>{{tutor}}</h2>
+        </ion-item> -->
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Tutor:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Domicilio:
+          </ion-label>
+          <h2>{{dir1}}</h2> <br>
+          <h2>{{dir2}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{tutor}}</h2>
-        <ion-item>
-          <ion-label class="ion-padding" position="stacked">Domicilio:</ion-label>
-        </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;"> {{user.nombre_vialidad}} {{user.num_exterior}}
-          {{user.num_interior}} {{user.nombre_asentamiento}} {{user.delegacion}} {{user.codigo_postal}}</h2>
+
       </ion-label>
-      <ion-label slot="end" class="slot-text-end"> </ion-label>
     </ion-item>
   </ion-list>
 
@@ -74,28 +80,33 @@
   <ion-list style="text-align: center;">
     <ion-item *ngFor="let user of usuarios">
       <ion-label>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">CURP:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">CURP:</ion-label>
+          <h2>{{user.curp_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.curp_tutor}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Nombre:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Nombre:</ion-label>
+          <h2 >{{user.nombre_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.nombre_tutor}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Apellido Paterno:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Apellido Paterno:</ion-label>
+          <h2>{{user.apellido_paterno_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.apellido_paterno_tutor}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Apellido Materno:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Apellido Materno:</ion-label>
+          <h2>{{user.apellido_materno_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.apellido_materno_tutor}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Fecha de nacimiento:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Fecha de nacimiento:</ion-label>
+          <h2> {{user.fecha_nacimiento_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;"> {{user.fecha_nacimiento_tutor}}</h2>
+
       </ion-label>
-      <ion-label slot="end" class="slot-text-end"> </ion-label>
     </ion-item>
   </ion-list>
 
@@ -145,7 +156,7 @@
 
     <ion-item>
       <ion-label>Tipo de asentamiento: </ion-label>
-      <ion-select  interface="action-sheet" placeholder="Selecciona">
+      <ion-select interface="action-sheet" placeholder="Selecciona">
         <ion-select-option value="BARRIO">Barrio</ion-select-option>
         <ion-select-option value="CAMPAMENTO">Campamento</ion-select-option>
         <ion-select-option value="COLONIA">Colonia</ion-select-option>
@@ -200,6 +211,7 @@
   <ion-text class="dorado" style="text-align: center;">
     <h1>3. Datos escolares:</h1>
   </ion-text>
+
   <form>
     <ion-item lines="full">
       <ion-label position="floating">Nombre de la escuela:</ion-label>
@@ -244,15 +256,15 @@
       <ion-radio-group>
         <ion-list-header>
           <ion-label>
-            La niña, niño o adolescente realiza actividades extraescolares: 
+            La niña, niño o adolescente realiza actividades extraescolares:
           </ion-label>
         </ion-list-header>
-    
+
         <ion-item>
           <ion-label>SI</ion-label>
           <ion-radio value="SI"></ion-radio>
         </ion-item>
-    
+
         <ion-item>
           <ion-label>NO</ion-label>
           <ion-radio value="NO"></ion-radio>
@@ -264,24 +276,261 @@
       <ion-radio-group>
         <ion-list-header>
           <ion-label>
-           ¿La niña, niño o adolescente recibe Mi Beca Para Empezar?
+            ¿La niña, niño o adolescente recibe Mi Beca Para Empezar?
           </ion-label>
         </ion-list-header>
-    
+
         <ion-item>
           <ion-label>SI</ion-label>
           <ion-radio value="SI"></ion-radio>
         </ion-item>
-    
+
         <ion-item>
           <ion-label>NO</ion-label>
           <ion-radio value="NO"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>
-
-
-
   </form>
+  <ion-text class="dorado" style="text-align: center;">
+    <h1>4. Declaración de ingresos</h1>
+    <h5>(Sin contar los apoyos gubernamentales que reciba algún miembro del núcleo familiar)</h5>
+  </ion-text>
 
+  <ion-item lines="full">
+    <ion-label position="floating">Total de ingreso económico familiar mensual:</ion-label>
+    <ion-input type="number" required placeholder="$"></ion-input>
+  </ion-item>
+
+  <ion-text class="dorado" style="text-align: center;">
+    <h3>5. Las siguientes preguntas tienen el objetivo de diseñar políticas públicas de atención a la población beneficiaria.
+      Le pedimos contestar con sinceridad
+    </h3>
+    </ion-text>
+
+    <form>
+      <ion-list>
+        <ion-radio-group>
+          <ion-list-header>
+            <ion-label>
+             ¿La beneficiaria tiene o ha tenido algún embarazo? 
+            </ion-label>
+          </ion-list-header>
+      
+          <ion-item>
+            <ion-label>SI</ion-label>
+            <ion-radio value="SI"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>NO</ion-label>
+            <ion-radio value="NO"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+        <ion-radio-group (click)="abrirTutorial()">
+          <ion-list-header>
+            <ion-label>
+             ¿La o el  beneficiario ha consumido o es consumidor de alguna sustancia psicoactiva?
+            </ion-label>
+          </ion-list-header>
+      
+          <ion-item>
+            <ion-label>SI</ion-label>
+            <ion-radio value="SI"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>NO</ion-label>
+            <ion-radio value="NO"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+
+      <ion-item id="tutorial" hidden="true">
+        <ion-label>¿Cúal?: </ion-label>
+        <ion-select interface="action-sheet" placeholder="Selecciona">
+          <ion-select-option value="P">TABACO</ion-select-option>
+          <ion-select-option value="P">ALCOHOL</ion-select-option>
+          <ion-select-option value="S">MARIGUANA</ion-select-option>
+          <ion-select-option value="BP">COCAINA</ion-select-option>
+          <ion-select-option value="BP">HEROINA</ion-select-option>
+          <ion-select-option value="BP">ESTIMULANTES DE TIPO ANFETAMINICO</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+        <ion-list-header>
+          <ion-label>¿A qué Centro DIF le gustaría asistir para realizar actividades culturales y recreativas?</ion-label>
+        </ion-list-header>
+        <ion-item>
+        <ion-select interface="action-sheet" placeholder="Alcaldía" (click)="abrirCentro1()">
+          <ion-select-option id="AO">Álvaro Obregón</ion-select-option>
+          <ion-select-option id="AZ">Azcapotzalco</ion-select-option>
+          <ion-select-option id="BJ">Benito Juárez</ion-select-option>
+          <ion-select-option id="CY">Coyoacán</ion-select-option>
+          <ion-select-option id="CJ">Cuajimalpa</ion-select-option>
+          <ion-select-option id="CH">Cuauhtémoc</ion-select-option>
+          <ion-select-option id="GAM">Gustavo A. Madero</ion-select-option>
+          <ion-select-option id="IZ">Iztacalco</ion-select-option>
+          <ion-select-option id="IZT">Iztapalapa</ion-select-option>
+          <ion-select-option id="MC">La Magdalena Contreras</ion-select-option>
+          <ion-select-option id="MH">Miguel Hidalgo</ion-select-option>
+          <ion-select-option id="MA">Milpa Alta</ion-select-option>
+          <ion-select-option id="TL">Tlalpan</ion-select-option>
+          <ion-select-option id="VC">Venustiano Carranza</ion-select-option>
+          <ion-select-option id="XC">Xochimilco</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    <ion-item id="AO" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">Área Operativa Poniente</ion-select-option>
+        <ion-select-option value="P">C.A.D.I. 17</ion-select-option>
+        <ion-select-option value="S">C.D.C. Jalalpa</ion-select-option>
+        <ion-select-option value="BP">C.F. 18 Leandro Valle</ion-select-option>
+        <ion-select-option value="BP">C.F. 24 León Guzman</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="AZ" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.B.S.U. San Juan Tlihuaca</ion-select-option>
+        <ion-select-option value="P">C.D.C. Pacto Federal</ion-select-option>
+        <ion-select-option value="S">C.F. 01 Jose María Mata</ion-select-option>
+        <ion-select-option value="BP">C.F. 03 Miguel Lerdo de Tejada</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="BJ" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">Centro Recreativo Niños Héroes</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="CY" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.B.S.U. Ajusco</ion-select-option>
+        <ion-select-option value="P">C.D.C. Adolfo Ruiz Cortines</ion-select-option>
+        <ion-select-option value="S">C.D.C. Familia Juárez Maza</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Francisco I. Madero</ion-select-option>
+        <ion-select-option value="BP">C.F. 17 Jose María Díaz Ordaz</ion-select-option>
+        <ion-select-option value="BP">C.F. 20 Gral. Manuel González Ortega</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="CJ" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.A.D.I. 15</ion-select-option>
+        <ion-select-option value="P">C.A.D.I. 19</ion-select-option>
+        <ion-select-option value="S">C.A.D.I. 20</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Cuauhtémoc</ion-select-option>
+        <ion-select-option value="BP">C.D.C. República Española</ion-select-option>
+        <ion-select-option value="BP">Centro de día Núm. 1</ion-select-option>
+        <ion-select-option value="BP">Centro de día Núm. 2</ion-select-option>
+        <ion-select-option value="BP">Comedor Familiar Núm. 1</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="CH" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">Área Operativa Norte</ion-select-option>
+        <ion-select-option value="P">C.B.S.U. Cuautepec</ion-select-option>
+        <ion-select-option value="S">C.B.S.U. Nueva Atzacoalco</ion-select-option>
+        <ion-select-option value="BP">C.B.S.U. Zacatenco</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Álvaro Obregón</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Lázaro Cárdenas</ion-select-option>
+        <ion-select-option value="BP">C.F. 08 Niño Jose Luis Ordaz Lopez</ion-select-option>
+        <ion-select-option value="BP">C.F. 09 Francisco Zarco</ion-select-option>
+        <ion-select-option value="BP">C.F. 10 Santos Degollado</ion-select-option>
+        <ion-select-option value="BP">C.F. 11 Miguel Ramos Arizpe</ion-select-option>
+        <ion-select-option value="BP">C.F. 12 Dr. Jose María Luis Mora</ion-select-option>
+        <ion-select-option value="BP">C.F. 13 Matías Romero</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="GAM" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.B.S.U. Benito Juárez</ion-select-option>
+        <ion-select-option value="P">C.D.C. Felipe Carrillo Puerto</ion-select-option>
+        <ion-select-option value="S">C.D.C. Ricardo Flores Magón</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Santa Anita</ion-select-option>
+        <ion-select-option value="BP">C.F. 14 Gral. Juan N. Álvarez</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="IZ" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">Albergue Central de Abastos</ion-select-option>
+        <ion-select-option value="P">Área Operativa Oriente</ion-select-option>
+        <ion-select-option value="S">C.B.S.U. Juan Escutia</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Constitución de 1917</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Ignacio Zaragoza</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Iztapalapa Nuevo</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Josefa Ortiz de Domínguez</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Vicente Guerrero</ion-select-option>
+        <ion-select-option value="BP">C.E.C.A.P.I.T.</ion-select-option>
+        <ion-select-option value="BP">C.F. 06 Ignacio Manuel Altamirano</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="IZT" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.B.S.U. Argentina</ion-select-option>
+        <ion-select-option value="P">C.D.C. XLIX Legislatura</ion-select-option>
+        <ion-select-option value="S">C.F. 07 Melchor Ocampo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="MH" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.D.C. Milpa Alta</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="MA" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.D.C. Quetzalcóatl</ion-select-option>
+        <ion-select-option value="P">C.D.C. Tláhuac</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="TL" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">Área Operativa Sur</ion-select-option>
+        <ion-select-option value="P">C.D.C. Ajusco Tlalpan</ion-select-option>
+        <ion-select-option value="S">C.D.C. Miguel Hidalgo</ion-select-option>
+        <ion-select-option value="BP">C.F. 19 Juan A. Mateos</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="VC" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.A.D.I. 31</ion-select-option>
+        <ion-select-option value="P">C.D.C. Adolfo López Mateos</ion-select-option>
+        <ion-select-option value="S">C.D.C. Rosario Castellanos</ion-select-option>
+        <ion-select-option value="BP">C.D.C. Venustiano Carranza</ion-select-option>
+        <ion-select-option value="BP">C.F. 02 General Ignacio Zaragoza</ion-select-option>
+        <ion-select-option value="BP">C.F. 04 Ignacio Ramirez</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item id="XC" hidden="true">
+      <ion-select interface="action-sheet" placeholder="Centro">
+        <ion-select-option value="P">C.D.C. Xochimilco</ion-select-option>
+      </ion-select>
+    </ion-item>
+    </form>
 </ion-content>
