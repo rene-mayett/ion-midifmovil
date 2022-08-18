@@ -71,7 +71,7 @@ export class LoginPage implements OnInit {
       color: 'success',
       duration: 2500,
       icon: 'checkmark-outline',
-      position: 'middle'
+      //position: 'middle'
     });
     toast.present();
   }

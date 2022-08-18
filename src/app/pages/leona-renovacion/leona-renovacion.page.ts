@@ -47,7 +47,7 @@ export class LeonaRenovacionPage implements OnInit {
 
   async cargando() {
     const loading = await this.loadingCtrl.create({
-      message: 'Espere un momento porfavor...',
+      message: 'Cargando...',
       duration: 1000,
     });
     loading.present();
