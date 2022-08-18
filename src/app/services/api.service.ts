@@ -15,19 +15,15 @@ export class APIService {
   }
 
   perfilLeona(curp): Observable<any> {
-    return this.http.get(`${environment.APIurl}/menu?curp=${curp}`); // RENE
-  }
-
-  validaActivosRenovacion(curp): Observable<any> {
-    return this.http.get(`${environment.APIurl}/idbaja?curp=${curp}`); // RENE
+    return this.http.get(`${environment.APIurl}/menu?curp=${curp}`);
   }
 
   perfilReno(curp): Observable<any>{
-    return this.http.get(`${environment.APIurl}/reno?curp=${curp}`) // RAMON
+    return this.http.get(`${environment.APIurl}/reno?curp=${curp}`)
   }
 
   perfilTutor(curp): Observable<any>{
-    return this.http.get(`${environment.APIurl}/tutor?curp=${curp}`) // RAMON
+    return this.http.get(`${environment.APIurl}/tutor?curp=${curp}`)
   }
 
 }
