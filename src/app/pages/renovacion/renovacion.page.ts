@@ -23,7 +23,7 @@ export class RenovacionPage implements OnInit {
     this.cargando();
     this.APIService.perfilReno(this.curp).subscribe(res => {
         this.usuarios = res;
-        console.log(this.usuarios,'DIRECCION AQUI');
+        console.log(this.usuarios);
         this.dir1 = this.usuarios[0].nombre_vialidad+', '+this.usuarios[0].num_exterior+', int. '+this.usuarios[0].num_interior;
         this.dir2 = this.usuarios[0].nombre_asentamiento+', '+this.usuarios[0].delegacion+', CP '+this.usuarios[0].codigo_postal;
     },
