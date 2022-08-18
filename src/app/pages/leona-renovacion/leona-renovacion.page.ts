@@ -54,7 +54,11 @@ export class LeonaRenovacionPage implements OnInit {
   }
 
   check(){
-    console.log(this.userSelected);
+    console.log(sessionStorage.getItem('curp'),sessionStorage.getItem('idp'));
+    sessionStorage.setItem('curp',this.userSelected.curp)
+    sessionStorage.setItem('idp',this.userSelected.idp)
+    console.log(sessionStorage.getItem('curp'),sessionStorage.getItem('idp'));
+    this.router.navigate(['renovacion'],);
   }
 
 }

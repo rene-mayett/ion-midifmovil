@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" >
-      <ion-back-button defaultHref="/" class="rojo" text="Atrás">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/leona-renovacion" class="rojo" text="Atrás">
       </ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
@@ -13,13 +13,19 @@
 
 <ion-content>
   <!-- Default title -->
+  <br>
   <ion-toolbar>
-    <ion-title style="text-align: center;" class="dorado" size="large"><h1>Beca Leona Vicario</h1></ion-title>
+    <ion-title style="text-align: center;" class="dorado" size="large">
+      <h1>Beca Leona Vicario</h1>
+    </ion-title>
   </ion-toolbar>
 
   <div class="ion-padding">
-    <ion-title size="small" style="text-align: center;" class="rojo"><h3>Seguna renovación 2022</h3></ion-title>
-    <p style="text-align: justify;">La renovación es un requisito de permanencia en el programa, es responsabilidad de {{tutor}} la captura de los datos bajo protesta de decir verdad.
+    <ion-title size="small" style="text-align: center;" class="rojo">
+      <h3>Seguna renovación 2022</h3>
+    </ion-title>
+    <p style="text-align: justify;">La renovación es un requisito de permanencia en el programa, es responsabilidad de
+      {{tutor}} la captura de los datos bajo protesta de decir verdad.
       La información y documentos cargados a la plataforma estan sujetos a revisión. Si se detecta falsedad en lo
       declarado, en la documentación, o esta no cumple
       con las características solicitadas, se procederá a la baja inmediata en el programa.
@@ -36,29 +42,35 @@
     <ion-item *ngFor="let user of usuarios">
       <ion-label>
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Beneficiario:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Beneficiario:
+          </ion-label>
+          <h2>{{user.nombre}} {{user.apellido_paterno}} {{user.apellido_materno}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.nombre}} {{user.apellido_paterno}} {{user.apellido_materno}}
-        </h2>
+
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">IDP:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">IDP:</ion-label>
+          <h2>{{user.idp}}</h2><br>
         </ion-item>
-        <h2>{{user.idp}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">CURP:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">CURP:</ion-label>
+          <h2>{{user.curp}}</h2> <br>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.curp}}</h2>
+
+        <!-- <ion-item>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Tutor:</ion-label>
+          <h2>{{tutor}}</h2>
+        </ion-item> -->
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Tutor:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Domicilio:
+          </ion-label>
+          <h2>{{dir1}}</h2> <br>
+          <h2>{{dir2}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{tutor}}</h2>
-        <ion-item>
-          <ion-label class="ion-padding" position="stacked">Domicilio:</ion-label>
-        </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;"> {{user.nombre_vialidad}} {{user.num_exterior}}
-          {{user.num_interior}} {{user.nombre_asentamiento}} {{user.delegacion}} {{user.codigo_postal}}</h2>
+
       </ion-label>
-      <ion-label slot="end" class="slot-text-end"> </ion-label>
     </ion-item>
   </ion-list>
 
@@ -69,28 +81,33 @@
   <ion-list style="text-align: center;">
     <ion-item *ngFor="let user of usuarios">
       <ion-label>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">CURP:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">CURP:</ion-label>
+          <h2>{{user.curp_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.curp_tutor}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Nombre:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Nombre:</ion-label>
+          <h2 >{{user.nombre_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.nombre_tutor}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Apellido Paterno:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Apellido Paterno:</ion-label>
+          <h2>{{user.apellido_paterno_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.apellido_paterno_tutor}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Apellido Materno:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Apellido Materno:</ion-label>
+          <h2>{{user.apellido_materno_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;">{{user.apellido_materno_tutor}}</h2>
+
         <ion-item>
-          <ion-label class="ion-padding" position="stacked">Fecha de nacimiento:</ion-label>
+          <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Fecha de nacimiento:</ion-label>
+          <h2> {{user.fecha_nacimiento_tutor}}</h2>
         </ion-item>
-        <h2 style="font-weight: 600; color:#d09c4e;"> {{user.fecha_nacimiento_tutor}}</h2>
+
       </ion-label>
-      <ion-label slot="end" class="slot-text-end"> </ion-label>
     </ion-item>
   </ion-list>
 
@@ -140,7 +157,7 @@
 
     <ion-item>
       <ion-label>Tipo de asentamiento: </ion-label>
-      <ion-select  interface="action-sheet" placeholder="Selecciona">
+      <ion-select interface="action-sheet" placeholder="Selecciona">
         <ion-select-option value="BARRIO">Barrio</ion-select-option>
         <ion-select-option value="CAMPAMENTO">Campamento</ion-select-option>
         <ion-select-option value="COLONIA">Colonia</ion-select-option>
@@ -239,15 +256,15 @@
       <ion-radio-group>
         <ion-list-header>
           <ion-label>
-            La niña, niño o adolescente realiza actividades extraescolares: 
+            La niña, niño o adolescente realiza actividades extraescolares:
           </ion-label>
         </ion-list-header>
-    
+
         <ion-item>
           <ion-label>SI</ion-label>
           <ion-radio value="SI"></ion-radio>
         </ion-item>
-    
+
         <ion-item>
           <ion-label>NO</ion-label>
           <ion-radio value="NO"></ion-radio>
@@ -259,15 +276,15 @@
       <ion-radio-group>
         <ion-list-header>
           <ion-label>
-           ¿La niña, niño o adolescente recibe Mi Beca Para Empezar?
+            ¿La niña, niño o adolescente recibe Mi Beca Para Empezar?
           </ion-label>
         </ion-list-header>
-    
+
         <ion-item>
           <ion-label>SI</ion-label>
           <ion-radio value="SI"></ion-radio>
         </ion-item>
-    
+
         <ion-item>
           <ion-label>NO</ion-label>
           <ion-radio value="NO"></ion-radio>
