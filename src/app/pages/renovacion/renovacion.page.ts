@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
 import { ToastController,LoadingController,AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -316,6 +317,41 @@ export class RenovacionPage implements OnInit {
     }
 
   }
+
+  document = addEventListener("DOMContentLoaded", function (event) {
+    let submitButton = this.document.querySelector("button");
+    let textField = this.document.querySelector("input");
+
+    submitButton.addEventListener("click", validarInfo);
+
+    function validarInfo(){
+
+      let newItem = textField.value;
+      var bcurp = (document.getElementById("curp") as HTMLInputElement).value;
+      var idvial = (document.getElementById("nombre_vialidad") as HTMLInputElement).value;
+
+      let todo = {
+        curp: bcurp,
+        vialidad: idvial 
+      };
+
+      console.log(todo);
+
+      fetch(`${environment.APIurl}/renovacion?curp=${bcurp}` + '&vialidad=' +idvial, {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(todo)
+      }).then((res) => res.text())
+      .then((text) => console.log(text))
+      .catch((err) => console.log(err))
+    };
+
+
+  });
+
+  
 
 
 }   
