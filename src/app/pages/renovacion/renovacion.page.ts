@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment';
 })
 export class RenovacionPage implements OnInit {
 
+
+
   constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router,private loadingCtrl: LoadingController) { }
 
   curp = sessionStorage.getItem('curp');
@@ -38,6 +40,7 @@ export class RenovacionPage implements OnInit {
     (err) => {
       console.log(err);
     });
+
   }
 
   async cargando() {
@@ -56,6 +59,48 @@ export class RenovacionPage implements OnInit {
         buttons: ['OK'],
       });
       await alert.present();
+    }
+
+    datos = {
+      curp: this.curp,
+      tipo_vialidad: '',
+      nombre_vialidad: '',
+      noext: '',
+      noint: '',
+      tipo_asentamiento:'',
+      nombre_asentamiento:'',
+      ecalle:'',
+      ycalle:'',
+      correo:'',
+      cp:'',
+      tel_casa:'',
+      tel_cel:'',
+      tel_recados1:'',
+      tel_rec2:'',
+      nb_escuela:'',
+      nivel:'',
+      grado:'',
+      tipo_escuela:'',
+      clave_escuela:'',
+      tel_escuela:'',
+      extraescolares:'',
+      beca:'',
+      ingresos:'',
+      embarazo:'',
+      sustancia:'',
+      qsustancia:'',
+      centro:'',
+  }
+
+
+    onSubmit(){
+      console.log(this.datos)
+      this.APIService.renovacionBene(this.datos).subscribe(res => {
+      this.datos = res;
+    },
+    (err) => {
+      console.log(err);
+    });
     }
 
     private tutorialHidden: boolean = true;
@@ -318,38 +363,40 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  document = addEventListener("DOMContentLoaded", function (event) {
-    let submitButton = this.document.querySelector("button");
-    let textField = this.document.querySelector("input");
-
-    submitButton.addEventListener("click", validarInfo);
-
-    function validarInfo(){
-
-      let newItem = textField.value;
-      var bcurp = (document.getElementById("curp") as HTMLInputElement).value;
-      var idvial = (document.getElementById("nombre_vialidad") as HTMLInputElement).value;
-
-      let todo = {
-        curp: bcurp,
-        vialidad: idvial 
-      };
-
-      console.log(todo);
-
-      fetch(`${environment.APIurl}/renovacion?curp=${bcurp}` + '&vialidad=' +idvial, {
-        method: 'POST',
-        headers: {
-          'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(todo)
-      }).then((res) => res.text())
-      .then((text) => console.log(text))
-      .catch((err) => console.log(err))
-    };
 
 
-  });
+  // document = addEventListener("DOMContentLoaded", function (event) {
+  //   let submitButton = this.document.querySelector("button");
+  //   let textField = this.document.querySelector("input");
+
+  //   submitButton.addEventListener("click", validarInfo);
+
+  //   function validarInfo(){
+
+  //     let newItem = textField.value;
+  //     var bcurp = (document.getElementById("curp") as HTMLInputElement).value;
+  //     var idvial = (document.getElementById("nombre_vialidad") as HTMLInputElement).value;
+
+  //     let todo = {
+  //       curp: bcurp,
+  //       vialidad: idvial 
+  //     };
+
+  //     console.log(todo);
+
+  //     fetch(`${environment.APIurl}/renovacion?curp=${bcurp}` + '&vialidad=' +idvial, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type' : 'application/json'
+  //       },
+  //       body: JSON.stringify(todo)
+  //     }).then((res) => res.text())
+  //     .then((text) => console.log(text))
+  //     .catch((err) => console.log(err))
+  //   };
+
+
+  // });
 
   
 
