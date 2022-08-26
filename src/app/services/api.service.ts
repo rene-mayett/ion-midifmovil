@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class APIService {
 
+
   constructor(private http: HttpClient) { }
 
   loginLeona(usuario): Observable<any> {
@@ -33,4 +34,9 @@ export class APIService {
     return this.http.get(`${environment.APIurl}/tutor?curp=${curp}`) // RAMON
   }
 
-}
+  renovacionBene(datos): Observable<any>{
+    return this.http.post(`${environment.APIurl}/renovacion`, datos)
+    
+  }
+
+} 

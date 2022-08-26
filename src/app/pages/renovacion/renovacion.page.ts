@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
-import { ToastController,LoadingController,AlertController } from '@ionic/angular';
+import { ToastController, LoadingController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -11,62 +12,86 @@ import { Router } from '@angular/router';
 })
 export class RenovacionPage implements OnInit {
 
-  constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router,private loadingCtrl: LoadingController) { }
 
+  constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router, private loadingCtrl: LoadingController) { }
+  private tutorialHidden: boolean = true;
   curp = sessionStorage.getItem('curp');
   usuarios;
-  tutor= sessionStorage.getItem('tutor');
+  tutor = sessionStorage.getItem('tutor');
   dir1;
   dir2;
+
+  datos = {
+    curp: this.curp,
+    tipo_vialidad: '',
+    nombre_vialidad: '',
+    noext: '',
+    noint: '',
+    tipo_asentamiento:'',
+    nombre_asentamiento:'',
+    ecalle:'',
+    ycalle:'',
+    correo:'',
+    cp:'',
+    tel_casa:'',
+    tel_cel:'',
+    tel_recados1:'',
+    tel_rec2:'',
+    nb_escuela:'',
+    nivel:'',
+    grado:'',
+    tipo_escuela:'',
+    clave_escuela:'',
+    tel_escuela:'',
+    extraescolares:'',
+    beca:'',
+    ingresos:'',
+    // embarazo:'',
+    // sustancia:'',
+    // qsustancia:'',
+    // centro:'',
+  }
+
   ngOnInit() {
     console.log(this.tutor)
     this.cargando();
     this.APIService.perfilReno(this.curp).subscribe(res => {
-        this.usuarios = res;
-        console.log(this.usuarios);
-        this.dir1 = this.usuarios[0].nombre_vialidad+', '+this.usuarios[0].num_exterior+', int. '+this.usuarios[0].num_interior;
-        this.dir2 = this.usuarios[0].nombre_asentamiento+', '+this.usuarios[0].delegacion+', CP '+this.usuarios[0].codigo_postal;
+      this.usuarios = res;
+      console.log(this.usuarios);
+      this.dir1 = this.usuarios[0].nombre_vialidad + ', ' + this.usuarios[0].num_exterior + ', int. ' + this.usuarios[0].num_interior;
+      this.dir2 = this.usuarios[0].nombre_asentamiento + ', ' + this.usuarios[0].delegacion + ', CP ' + this.usuarios[0].codigo_postal;
     },
-    (err) => {
-      console.log(err);
-      this.errorAlert();
-    });
+      (err) => {
+        console.log(err);
+        this.errorAlert();
+      });
     this.APIService.perfilTutor(this.curp).subscribe(res => {
       this.usuarios = res;
     },
-    (err) => {
-      console.log(err);
-    });
+      (err) => {
+        console.log(err);
+      });
+
   }
 
-  async cargando() {
-    const loading = await this.loadingCtrl.create({
-      message: 'Cargando...',
-      duration: 800,
-    });
-    loading.present();
-    }
-
-    async errorAlert() {
-      const alert = await this.alertController.create({
-        header: 'Error 503',
-        subHeader: 'Error durante la conexión ',
-        message: 'No se puede conectar con el servidor',
-        buttons: ['OK'],
+  onSubmit() {
+    console.log(this.datos)
+    this.APIService.renovacionBene(this.datos).subscribe(res => {
+      this.datos = res;
+    },
+      (err) => {
+        console.log(err);
       });
-      await alert.present();
-    }
+  }
 
-    private tutorialHidden: boolean = true;
+  abrirTutorial() {
 
-  abrirTutorial(){
-
-    if(this.tutorialHidden === true){
+    if (this.tutorialHidden === true) {
 
       this.tutorialHidden = false;
       document.getElementById("tutorial").hidden = false;
 
-    }else if(this.tutorialHidden === false){
+    } else if (this.tutorialHidden === false) {
 
       this.tutorialHidden = true;
       document.getElementById("tutorial").hidden = true;
@@ -77,14 +102,14 @@ export class RenovacionPage implements OnInit {
 
   private centroHidden: boolean = true;
 
-  abrirCentro1(){
+  abrirCentro1() {
 
-    if(this.centroHidden === true){
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("AO").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("AO").hidden = true;
@@ -93,14 +118,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro2(){
-    
-    if(this.centroHidden === true){
+  abrirCentro2() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("AZ").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("AZ").hidden = true;
@@ -109,14 +134,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro3(){
-    
-    if(this.centroHidden === true){
+  abrirCentro3() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("BJ").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("BJ").hidden = true;
@@ -125,14 +150,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro4(){
-    
-    if(this.centroHidden === true){
+  abrirCentro4() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("CY").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("CY").hidden = true;
@@ -141,14 +166,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro5(){
-    
-    if(this.centroHidden === true){
+  abrirCentro5() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("CJ").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("CJ").hidden = true;
@@ -157,14 +182,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro6(){
-    
-    if(this.centroHidden === true){
+  abrirCentro6() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("CH").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("CH").hidden = true;
@@ -173,14 +198,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro7(){
-    
-    if(this.centroHidden === true){
+  abrirCentro7() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("GAM").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("GAM").hidden = true;
@@ -189,14 +214,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro8(){
-    
-    if(this.centroHidden === true){
+  abrirCentro8() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("IZ").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("IZ").hidden = true;
@@ -205,14 +230,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro9(){
-    
-    if(this.centroHidden === true){
+  abrirCentro9() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("IZT").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("IZT").hidden = true;
@@ -221,14 +246,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro10(){
-    
-    if(this.centroHidden === true){
+  abrirCentro10() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("MC").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("MC").hidden = true;
@@ -237,14 +262,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro11(){
-    
-    if(this.centroHidden === true){
+  abrirCentro11() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("MH").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("MH").hidden = true;
@@ -253,14 +278,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro12(){
-    
-    if(this.centroHidden === true){
+  abrirCentro12() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("MA").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("MA").hidden = true;
@@ -269,14 +294,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro13(){
-    
-    if(this.centroHidden === true){
+  abrirCentro13() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("TL").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("TL").hidden = true;
@@ -285,14 +310,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro14(){
-    
-    if(this.centroHidden === true){
+  abrirCentro14() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("VC").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("VC").hidden = true;
@@ -301,14 +326,14 @@ export class RenovacionPage implements OnInit {
 
   }
 
-  abrirCentro15(){
-    
-    if(this.centroHidden === true){
+  abrirCentro15() {
+
+    if (this.centroHidden === true) {
 
       this.centroHidden = false;
       document.getElementById("XC").hidden = false;
 
-    }else if(this.centroHidden === false){
+    } else if (this.centroHidden === false) {
 
       this.centroHidden = true;
       document.getElementById("XC").hidden = true;
@@ -317,5 +342,22 @@ export class RenovacionPage implements OnInit {
 
   }
 
+  async cargando() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Cargando...',
+      duration: 800,
+    });
+    loading.present();
+  }
+
+  async errorAlert() {
+    const alert = await this.alertController.create({
+      header: 'Error 503',
+      subHeader: 'Error durante la conexión ',
+      message: 'No se puede conectar con el servidor',
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
 
 }   
