@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { HttpHeaders } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 @Injectable({
@@ -36,12 +35,7 @@ export class APIService {
   }
 
   renovacionBene(datos): Observable<any>{
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-
-
-    return this.http.post(`${environment.APIurl}/renovacion`, JSON.stringify(datos),{headers:headers})
+    return this.http.post(`${environment.APIurl}/renovacion`, datos)
     
   }
 
