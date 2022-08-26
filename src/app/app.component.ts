@@ -9,6 +9,8 @@ import { ToastController, LoadingController, AlertController } from '@ionic/angu
 })
 export class AppComponent {
 
+  logeado;
+
   constructor(private router: Router, private loadingCtrl: LoadingController,) { }
 
   logout() {
