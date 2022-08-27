@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Camera, CameraOptions,  } from '@awesome-cordova-plugins/camera/ngx';
 
 
+
+
 @Component({
   selector: 'app-renovacion',
   templateUrl: './renovacion.page.html',
@@ -39,12 +41,12 @@ export class RenovacionPage implements OnInit {
     tel_recados1;
     tel_rec2;
     nb_escuela;
-    nivel;
+    id_escolaridad;
     grado;
     tipo_escuela;
     clave_escuela;
     tel_escuela;
-    extraescolares;
+    actividad;
     beca;
     ingresos;
     
@@ -52,8 +54,6 @@ export class RenovacionPage implements OnInit {
     qsustancia;
     embarazo;
     centro;
-  
-
   
 
   ngOnInit() {
@@ -74,12 +74,12 @@ export class RenovacionPage implements OnInit {
     },
       (err) => {
         console.log(err);
+        this.errorAlert();
       });
 
   }
 
   onSubmit() {
-
     let datos = {
       curp: this.curp,
       tipo_vialidad: this.tipo_vialidad,
@@ -97,29 +97,32 @@ export class RenovacionPage implements OnInit {
       tel_recados1: this.tel_recados1,
       tel_rec2: this.tel_rec2,
       nb_escuela: this.nb_escuela,
-      nivel: this.nivel,
+      id_escolaridad: this.id_escolaridad,
       grado: this.grado,
       tipo_escuela: this.tipo_escuela,
       clave_escuela: this.clave_escuela,
       tel_escuela: this.tel_escuela,
-      extraescolares: this.extraescolares,
+      actividad: this.actividad,
       beca: this.beca,
       ingresos: this.ingresos,
       comp64: this.comprobante,
       const64: this.constancia,
-      // sustancia
-      // qsustancia;
-      // embarazo;
-      // centro;
-    
+
+      // sustancia: this.sustancia,
+      // qsustancia: this.qsustancia,
+      // embarazo: this.embarazo,
+      // centro: this.centro,
     }
-    
+    this.cargando();
     this.APIService.renovacionBene(datos).subscribe(res => {
-      
+      this.guardoRenovacion();
+      this.router.navigate(['leona-tabs'],);
     },
       (err) => {
         console.log(err);
+        this.errorAlert();
       });
+      
   }
 
   abrirTutorial() {
@@ -378,6 +381,17 @@ export class RenovacionPage implements OnInit {
 
     }
 
+  }
+
+  async guardoRenovacion() {
+    const alert = await this.alertController.create({
+      header: '¡Listo!',
+      animated: true,
+      subHeader: 'Se han guardado y enviado tus datos para revisión.',
+      message: 'Renovacion guardada',
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
   async cargando() {

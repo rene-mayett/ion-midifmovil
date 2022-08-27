@@ -32,7 +32,6 @@ export class LoginPage implements OnInit {
     this.APIService.loginLeona(this.usuario).subscribe(res => {
       //console.log(res);
       if (res.length==0) {
-
         this.errorToast();
       }
       else {

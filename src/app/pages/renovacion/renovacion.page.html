@@ -39,8 +39,6 @@
       <h2>1.1 Beneficiario(a)</h2>
     </ion-text>
 
-
-
     <ion-list style="text-align: center;">
       <ion-item *ngFor="let user of usuarios">
         <ion-label>
@@ -77,7 +75,7 @@
         </ion-label>
       </ion-item>
     </ion-list>
-
+    <br>
     <ion-text class="dorado" style="text-align: center;">
       <h2>1.2 Padre, Madre o Tutor</h2>
     </ion-text>
@@ -227,6 +225,7 @@
       </ion-item>
     </form>
 
+    <br><br>
     <ion-text class="dorado" style="text-align: center;">
       <h1>3. Datos escolares:</h1>
     </ion-text>
@@ -239,7 +238,7 @@
 
       <ion-item>
         <ion-label>Nivel: </ion-label>
-        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="nivel"
+        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="id_escolaridad"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="2">PREESCOLAR</ion-select-option>
           <ion-select-option value="3">PRIMARIA</ion-select-option>
@@ -276,7 +275,7 @@
       </ion-item>
 
       <ion-list>
-        <ion-radio-group [(ngModel)]="extraescolares" [ngModelOptions]="{standalone:true}">
+        <ion-radio-group [(ngModel)]="actividad" [ngModelOptions]="{standalone:true}">
           <ion-list-header>
             <ion-label>
               La niña, niño o adolescente ¿realiza actividades extraescolares?:
@@ -315,6 +314,8 @@
         </ion-radio-group>
       </ion-list>
     </form>
+
+    <br><br>
     <ion-text class="dorado" style="text-align: center;">
       <h1>4. Declaración de ingresos</h1>
       <h5>(Sin contar los apoyos gubernamentales que reciba algún miembro del núcleo familiar)</h5>
@@ -322,15 +323,13 @@
 
     <ion-item lines="full">
       <ion-label position="floating">Total de ingreso económico familiar mensual:</ion-label>
-      <ion-input type="number" required placeholder="$" [(ngModel)]="ingresos"
+      <ion-input type="number" required placeholder="$        (Sin signos de puntuación)" [(ngModel)]="ingresos"
         [ngModelOptions]="{standalone:true}"></ion-input>
     </ion-item>
-
+    <br><br><br>
     <ion-text class="dorado" style="text-align: center;">
       <h3>5. Las siguientes preguntas tienen el objetivo de diseñar políticas públicas de atención a la población
-        beneficiaria.
-        Le pedimos contestar con sinceridad
-      </h3>
+        beneficiaria. Le pedimos contestar con sinceridad</h3>
     </ion-text>
 
     
@@ -559,6 +558,7 @@
         </ion-select>
       </ion-item>
 
+      <br><br>
 
       <ion-item>
         <ion-row>
@@ -573,11 +573,11 @@
           </ion-card-content>
         </ion-card>
       </ion-item>
-
+      <br>
       <ion-item>
         <ion-row>
           <ion-col size="6">
-            <ion-button shape="round" (click)="fotoConstancia()">
+            <ion-button [disabled]="!comprobante" shape="round" (click)="fotoConstancia()">
               <ion-icon slot="start" name="camera"></ion-icon>Constancia de Estudios</ion-button>
           </ion-col>
         </ion-row>
@@ -587,14 +587,10 @@
           </ion-card-content>
         </ion-card>
       </ion-item>
-
-
-
+      <br><br><br><br>
     <ion-button [disabled]="!constancia" type="submit" expand="block">
-      Guardar
+      Finalizar Renovación
     </ion-button>
   </form>
-
-
 
 </ion-content>
