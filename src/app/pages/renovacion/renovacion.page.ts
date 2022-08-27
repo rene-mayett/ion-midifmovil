@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
 import { ToastController, LoadingController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
+import { Camera, CameraOptions,  } from '@awesome-cordova-plugins/camera/ngx';
 
 
 @Component({
@@ -13,44 +13,48 @@ import { environment } from 'src/environments/environment';
 export class RenovacionPage implements OnInit {
 
 
-  constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router, private loadingCtrl: LoadingController) { }
+  constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router, private loadingCtrl: LoadingController,private camera: Camera,) { }
   private tutorialHidden: boolean = true;
+  comprobante;
+  constancia;
   curp = sessionStorage.getItem('curp');
   usuarios;
   tutor = sessionStorage.getItem('tutor');
   dir1;
   dir2;
 
-  datos = {
-    curp: this.curp,
-    tipo_vialidad: '',
-    nombre_vialidad: '',
-    noext: '',
-    noint: '',
-    tipo_asentamiento:'',
-    nombre_asentamiento:'',
-    ecalle:'',
-    ycalle:'',
-    correo:'',
-    cp:'',
-    tel_casa:'',
-    tel_cel:'',
-    tel_recados1:'',
-    tel_rec2:'',
-    nb_escuela:'',
-    nivel:'',
-    grado:'',
-    tipo_escuela:'',
-    clave_escuela:'',
-    tel_escuela:'',
-    extraescolares:'',
-    beca:'',
-    ingresos:'',
-    // embarazo:'',
-    // sustancia:'',
-    // qsustancia:'',
-    // centro:'',
-  }
+
+    tipo_vialidad;
+    nombre_vialidad;
+    noext;
+    noint;
+    tipo_asentamiento;
+    nombre_asentamiento;
+    ecalle;
+    ycalle;
+    correo;
+    cp;
+    tel_casa;
+    tel_cel;
+    tel_recados1;
+    tel_rec2;
+    nb_escuela;
+    nivel;
+    grado;
+    tipo_escuela;
+    clave_escuela;
+    tel_escuela;
+    extraescolares;
+    beca;
+    ingresos;
+    
+    sustancia
+    qsustancia;
+    embarazo;
+    centro;
+  
+
+  
 
   ngOnInit() {
     console.log(this.tutor)
@@ -75,9 +79,43 @@ export class RenovacionPage implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.datos)
-    this.APIService.renovacionBene(this.datos).subscribe(res => {
-      this.datos = res;
+
+    let datos = {
+      curp: this.curp,
+      tipo_vialidad: this.tipo_vialidad,
+      nombre_vialidad: this.nombre_vialidad,
+      noext: this.noext,
+      noint: this.noint,
+      tipo_asentamiento: this.tipo_asentamiento,
+      nombre_asentamiento: this.nombre_asentamiento,
+      ecalle: this.ecalle,
+      ycalle: this.ycalle,
+      correo: this.correo,
+      cp: this.cp,
+      tel_casa: this.tel_casa,
+      tel_cel: this.tel_cel,
+      tel_recados1: this.tel_recados1,
+      tel_rec2: this.tel_rec2,
+      nb_escuela: this.nb_escuela,
+      nivel: this.nivel,
+      grado: this.grado,
+      tipo_escuela: this.tipo_escuela,
+      clave_escuela: this.clave_escuela,
+      tel_escuela: this.tel_escuela,
+      extraescolares: this.extraescolares,
+      beca: this.beca,
+      ingresos: this.ingresos,
+      comp64: this.comprobante,
+      const64: this.constancia,
+      // sustancia
+      // qsustancia;
+      // embarazo;
+      // centro;
+    
+    }
+    
+    this.APIService.renovacionBene(datos).subscribe(res => {
+      
     },
       (err) => {
         console.log(err);
@@ -359,5 +397,49 @@ export class RenovacionPage implements OnInit {
     });
     await alert.present();
   }
+
+  fotoComprobante(){
+    const options: CameraOptions = {
+      quality: 80,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      correctOrientation: true,
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     let base64Image = 'data:image/jpeg;base64,' + imageData;
+     this.comprobante = base64Image;
+
+    }, (err) => {
+      console.log(err);
+     // Handle error
+    });
+  }
+
+  fotoConstancia(){
+  const options: CameraOptions = {
+    quality: 80,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    sourceType: this.camera.PictureSourceType.CAMERA,
+    correctOrientation: true,
+  }
+  
+  this.camera.getPicture(options).then((imageData) => {
+   // imageData is either a base64 encoded string or a file URI
+   // If it's base64 (DATA_URL):
+   let base64Image = 'data:image/jpeg;base64,' + imageData;
+   this.constancia = base64Image;
+
+  }, (err) => {
+    console.log(err);
+   // Handle error
+  });
+}
 
 }   

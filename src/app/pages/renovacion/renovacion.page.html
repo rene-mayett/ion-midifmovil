@@ -127,7 +127,7 @@
     <form>
       <ion-item>
         <ion-label>Tipo de vialidad: </ion-label>
-        <ion-select interface="action-sheet" name="vialidad" placeholder="Selecciona" [(ngModel)]="datos.tipo_vialidad"
+        <ion-select interface="action-sheet" name="vialidad" placeholder="Selecciona" [(ngModel)]="tipo_vialidad"
           [ngModelOptions]="{standalone: true}">
           <ion-select-option value="1">Andador</ion-select-option>
           <ion-select-option value="2">Anden</ion-select-option>
@@ -154,22 +154,22 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Nombre vialidad:</ion-label>
-        <ion-input type="text" name="vialidad" required [(ngModel)]="datos.nombre_vialidad"
+        <ion-input type="text" name="vialidad" required [(ngModel)]="nombre_vialidad"
           [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">No. Ext:</ion-label>
-        <ion-input type="email" name="ext" required [(ngModel)]="datos.noext" [ngModelOptions]="{standalone: true}">
+        <ion-input type="email" name="ext" required [(ngModel)]="noext" [ngModelOptions]="{standalone: true}">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">No. Int:</ion-label>
-        <ion-input type="text" name="int" [(ngModel)]="datos.noint" [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-input type="text" name="int" [(ngModel)]="noint" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Tipo de asentamiento: </ion-label>
-        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="datos.tipo_asentamiento"
+        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="tipo_asentamiento"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="BARRIO">Barrio</ion-select-option>
           <ion-select-option value="CAMPAMENTO">Campamento</ion-select-option>
@@ -186,43 +186,43 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Nombre de asentamiento:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.nombre_asentamiento" [ngModelOptions]="{standalone:true}">
+        <ion-input type="text" required [(ngModel)]="nombre_asentamiento" [ngModelOptions]="{standalone:true}">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Entre calle:</ion-label>
-        <ion-input type="email" required [(ngModel)]="datos.ecalle" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="email" required [(ngModel)]="ecalle" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Y calle:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.ycalle" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="text" required [(ngModel)]="ycalle" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Correo electronico:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.correo" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="text" required [(ngModel)]="correo" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">C.P:</ion-label>
-        <ion-input type="email" required [(ngModel)]="datos.cp" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="email" required [(ngModel)]="cp" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tel. Casa:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.tel_casa" [ngModelOptions]="{standalone:true}"
+        <ion-input type="text" required [(ngModel)]="tel_casa" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tel. Cel:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.tel_cel" [ngModelOptions]="{standalone:true}" maxlength="10">
+        <ion-input type="text" required [(ngModel)]="tel_cel" [ngModelOptions]="{standalone:true}" maxlength="10">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tel. Recados 1:</ion-label>
-        <ion-input type="email" required [(ngModel)]="datos.tel_recados1" [ngModelOptions]="{standalone:true}"
+        <ion-input type="email" required [(ngModel)]="tel_recados1" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tel. Recados 2:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.tel_rec2" [ngModelOptions]="{standalone:true}"
+        <ion-input type="text" required [(ngModel)]="tel_rec2" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
     </form>
@@ -234,12 +234,12 @@
     <form>
       <ion-item lines="full">
         <ion-label position="floating">Nombre de la escuela:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.nb_escuela" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="text" required [(ngModel)]="nb_escuela" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Nivel: </ion-label>
-        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="datos.nivel"
+        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="nivel"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="2">PREESCOLAR</ion-select-option>
           <ion-select-option value="3">PRIMARIA</ion-select-option>
@@ -251,12 +251,12 @@
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Grado°:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.grado" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="text" required [(ngModel)]="grado" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Tipo de escuela: </ion-label>
-        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="datos.tipo_escuela"
+        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="tipo_escuela"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="Publica">PÚBLICA</ion-select-option>
           <ion-select-option value="Privada">PRIVADA</ion-select-option>
@@ -265,18 +265,18 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Clave de escuela:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.clave_escuela" [ngModelOptions]="{standalone:true}">
+        <ion-input type="text" required [(ngModel)]="clave_escuela" [ngModelOptions]="{standalone:true}">
         </ion-input>
       </ion-item>
 
       <ion-item lines="full">
         <ion-label position="floating">Teléfono:</ion-label>
-        <ion-input type="text" required [(ngModel)]="datos.tel_escuela" [ngModelOptions]="{standalone:true}"
+        <ion-input type="text" required [(ngModel)]="tel_escuela" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
 
       <ion-list>
-        <ion-radio-group [(ngModel)]="datos.extraescolares" [ngModelOptions]="{standalone:true}">
+        <ion-radio-group [(ngModel)]="extraescolares" [ngModelOptions]="{standalone:true}">
           <ion-list-header>
             <ion-label>
               La niña, niño o adolescente ¿realiza actividades extraescolares?:
@@ -296,7 +296,7 @@
       </ion-list>
 
       <ion-list>
-        <ion-radio-group [(ngModel)]="datos.beca" [ngModelOptions]="{standalone:true}">
+        <ion-radio-group [(ngModel)]="beca" [ngModelOptions]="{standalone:true}">
           <ion-list-header>
             <ion-label>
               La niña, niño o adolescente ¿recibe "Mi Beca Para Empezar"?
@@ -322,7 +322,7 @@
 
     <ion-item lines="full">
       <ion-label position="floating">Total de ingreso económico familiar mensual:</ion-label>
-      <ion-input type="number" required placeholder="$" [(ngModel)]="datos.ingresos"
+      <ion-input type="number" required placeholder="$" [(ngModel)]="ingresos"
         [ngModelOptions]="{standalone:true}"></ion-input>
     </ion-item>
 
@@ -333,9 +333,9 @@
       </h3>
     </ion-text>
 
-    <form>
+    
       <ion-list>
-        <ion-radio-group [(ngModel)]="datos.embarazo" [ngModelOptions]="{standalone:true}">
+        <ion-radio-group [(ngModel)]="embarazo" [ngModelOptions]="{standalone:true}">
           <ion-list-header>
             <ion-label>
               ¿La beneficiaria tiene o ha tenido algún embarazo?
@@ -354,7 +354,7 @@
         </ion-radio-group>
       </ion-list>
 
-      <ion-radio-group (click)="abrirTutorial()" [(ngModel)]="datos.sustancia" [ngModelOptions]="{standalone:true}">
+      <ion-radio-group (click)="abrirTutorial()" [(ngModel)]="sustancia" [ngModelOptions]="{standalone:true}">
         <ion-list-header>
           <ion-label>
             ¿La o el beneficiario ha consumido o es consumidor de alguna sustancia psicoactiva?
@@ -374,7 +374,7 @@
 
       <ion-item id="tutorial" hidden="true">
         <ion-label>¿Cúal?: </ion-label>
-        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="datos.qsustancia"
+        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="qsustancia"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="TB">TABACO</ion-select-option>
           <ion-select-option value="AH">ALCOHOL</ion-select-option>
@@ -389,7 +389,7 @@
         <ion-label>¿A qué Centro DIF le gustaría asistir para realizar actividades culturales y recreativas?</ion-label>
       </ion-list-header>
       <ion-item>
-        <ion-select interface="action-sheet" placeholder="Alcaldía" (click)="abrirCentro1()" [(ngModel)]="datos.centro"
+        <ion-select interface="action-sheet" placeholder="Alcaldía" (click)="abrirCentro1()" [(ngModel)]="centro"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option id="AO">Álvaro Obregón</ion-select-option>
           <ion-select-option id="AZ">Azcapotzalco</ion-select-option>
@@ -553,14 +553,44 @@
         </ion-select>
       </ion-item>
 
-
       <ion-item id="XC" hidden="true">
         <ion-select interface="action-sheet" placeholder="Centro">
           <ion-select-option value="P">C.D.C. Xochimilco</ion-select-option>
         </ion-select>
       </ion-item>
-    </form>
-    <ion-button [disabled]="formulario.invalid" type="submit" expand="block">
+
+
+      <ion-item>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button shape="round" (click)="fotoComprobante()">
+              <ion-icon slot="start" name="camera"></ion-icon>Comprobante de Domicilio</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-card *ngIf="comprobante">
+          <ion-card-content>
+            <img [src]="comprobante" *ngIf="comprobante">
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+
+      <ion-item>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button shape="round" (click)="fotoConstancia()">
+              <ion-icon slot="start" name="camera"></ion-icon>Constancia de Estudios</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-card *ngIf="constancia">
+          <ion-card-content>
+            <img [src]="constancia" *ngIf="constancia">
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+
+
+
+    <ion-button [disabled]="!constancia" type="submit" expand="block">
       Guardar
     </ion-button>
   </form>

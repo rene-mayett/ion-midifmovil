@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient , HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
@@ -36,7 +36,6 @@ export class APIService {
 
   renovacionBene(datos): Observable<any>{
     return this.http.post(`${environment.APIurl}/renovacion`, datos)
-    
   }
 
 } 
