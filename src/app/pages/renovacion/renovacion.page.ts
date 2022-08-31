@@ -14,6 +14,7 @@ import { Camera, CameraOptions,  } from '@awesome-cordova-plugins/camera/ngx';
 })
 export class RenovacionPage implements OnInit {
 
+  today: number = Date.now();
 
   constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router, private loadingCtrl: LoadingController,private camera: Camera,) { }
   private tutorialHidden: boolean = true;
@@ -30,6 +31,7 @@ export class RenovacionPage implements OnInit {
     nombre_vialidad;
     noext;
     noint;
+    parentesco;
     tipo_asentamiento;
     nombre_asentamiento;
     ecalle;
@@ -53,8 +55,8 @@ export class RenovacionPage implements OnInit {
     sustancia
     qsustancia;
     embarazo;
-    centro;
-  
+    alcaldia;
+    centros;
 
   ngOnInit() {
     console.log(this.tutor)
@@ -92,6 +94,7 @@ export class RenovacionPage implements OnInit {
       ycalle: this.ycalle,
       correo: this.correo,
       cp: this.cp,
+      parentesco: this.parentesco,
       tel_casa: this.tel_casa,
       tel_cel: this.tel_cel,
       tel_recados1: this.tel_recados1,
@@ -105,13 +108,13 @@ export class RenovacionPage implements OnInit {
       actividad: this.actividad,
       beca: this.beca,
       ingresos: this.ingresos,
+      alcaldia: this.alcaldia,
+      centros: this.centros,
       comp64: this.comprobante,
       const64: this.constancia,
-
-      // sustancia: this.sustancia,
-      // qsustancia: this.qsustancia,
-      // embarazo: this.embarazo,
-      // centro: this.centro,
+      sustancia: this.sustancia,
+      qsustancia: this.qsustancia,
+      embarazo: this.embarazo
     }
     this.cargando();
     this.APIService.renovacionBene(datos).subscribe(res => {
@@ -136,248 +139,6 @@ export class RenovacionPage implements OnInit {
 
       this.tutorialHidden = true;
       document.getElementById("tutorial").hidden = true;
-
-    }
-
-  }
-
-  private centroHidden: boolean = true;
-
-  abrirCentro1() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("AO").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("AO").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro2() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("AZ").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("AZ").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro3() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("BJ").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("BJ").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro4() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("CY").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("CY").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro5() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("CJ").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("CJ").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro6() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("CH").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("CH").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro7() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("GAM").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("GAM").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro8() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("IZ").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("IZ").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro9() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("IZT").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("IZT").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro10() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("MC").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("MC").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro11() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("MH").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("MH").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro12() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("MA").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("MA").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro13() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("TL").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("TL").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro14() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("VC").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("VC").hidden = true;
-
-    }
-
-  }
-
-  abrirCentro15() {
-
-    if (this.centroHidden === true) {
-
-      this.centroHidden = false;
-      document.getElementById("XC").hidden = false;
-
-    } else if (this.centroHidden === false) {
-
-      this.centroHidden = true;
-      document.getElementById("XC").hidden = true;
 
     }
 
