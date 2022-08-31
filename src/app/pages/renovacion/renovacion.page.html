@@ -427,7 +427,59 @@
         <ion-label>¿A qué Centro DIF le gustaría asistir para realizar actividades culturales y recreativas?</ion-label>
       </ion-list-header>
 
-      <ion-item class="">
+      <ion-item>
+        <ion-select interface="action-sheet" placeholder="Centros" [(ngModel)]="alcaldia"
+          [ngModelOptions]="{standalone:true}" required>
+          <ion-select-option value="58">Alcaldia: ALVARO OBREGON - C.F. 18 LEANDRO VALLE</ion-select-option>
+          <ion-select-option value="64">Alcaldia: ALVARO OBREGON - C.D.C. JALALPA</ion-select-option>
+          <ion-select-option value="32">Alcaldia: AZCAPOTZALCO - C.D.C. PACTO FEDERAL</ion-select-option>
+          <ion-select-option value="15">Alcaldia: AZCAPOTZALCO - C.B.S.U. SAN JUAN TLIHUACA</ion-select-option>
+          <ion-select-option value="62">Alcaldia: BENITO JUAREZ - CENTRO RECREATIVO NIÑOS HEROES</ion-select-option>
+          <ion-select-option value="60">Alcaldia: COYOACAN - C.F. 20 GRAL. MANUEL GONZALEZ ORTEGA</ion-select-option>
+          <ion-select-option value="57">Alcaldia: COYOACAN - C.F. 17 JOSE MARIA DIAZ ORDAZ</ion-select-option>
+          <ion-select-option value="22">Alcaldia: COYOACAN - C.D.C. FAMILIA JUAREZ MAZA</ion-select-option>
+          <ion-select-option value="24">Alcaldia: COYOACAN - C.D.C. Francisco I. Madero</ion-select-option>
+          <ion-select-option value="9">Alcaldia: COYOACAN - C.B.S.U. AJUSCO</ion-select-option>
+          <ion-select-option value="27">Alcaldia: CUAJIMALPA DE MORELOS - C.D.C. JOSE MARIA MORELOS Y PAVON</ion-select-option>
+          <ion-select-option value="34">Alcaldia: CUAUHTEMOC - C.D.C. REPUBLICA ESPAÑOLA</ion-select-option>
+          <ion-select-option value="51">Alcaldia: GUSTAVO A. MADERO - C.F. 09 FRANCISCO ZARCO</ion-select-option>
+          <ion-select-option value="53">Alcaldia: GUSTAVO A. MADERO - C.F. 11 MIGUEL RAMOS ARIZPE</ion-select-option>
+          <ion-select-option value="29">Alcaldia: GUSTAVO A. MADERO - C.D.C. LAZARO CARDENAS</ion-select-option>
+          <ion-select-option value="14">Alcaldia: GUSTAVO A. MADERO - C.B.S.U. NUEVA ATZACOALCO</ion-select-option>
+          <ion-select-option value="54">Alcaldia: GUSTAVO A. MADERO - C.F. 12 DR. JOSE MARIA LUIS MORA</ion-select-option>
+          <ion-select-option value="12">Alcaldia: GUSTAVO A. MADERO - C.B.S.U. CUAUTEPEC</ion-select-option>
+          <ion-select-option value="16">Alcaldia: GUSTAVO A. MADERO - C.B.S.U. ZACATENCO</ion-select-option>
+          <ion-select-option value="55">Alcaldia: GUSTAVO A. MADERO - C.F. 13 MATIAS ROMERO</ion-select-option>
+          <ion-select-option value="50">Alcaldia: GUSTAVO A. MADERO - C.F. 08 NIÑO JOSE LUIS ORDAZ LOPEZ</ion-select-option>
+          <ion-select-option value="20">Alcaldia: GUSTAVO A. MADERO - C.D.C. ALVARO OBREGON</ion-select-option>
+          <ion-select-option value="11">Alcaldia: IZTACALCO - C.B.S.U. Benito Juárez</ion-select-option>
+          <ion-select-option value="37">Alcaldia: IZTACALCO - C.D.C. SANTA ANITA</ion-select-option>
+          <ion-select-option value="56">Alcaldia: IZTACALCO - C.F. 14 GRAL. JUAN N. ALVAREZ</ion-select-option>
+          <ion-select-option value="23">Alcaldia: IZTACALCO - C.D.C. FELIPE CARRILLO PUERTO</ion-select-option>
+          <ion-select-option value="35">Alcaldia: IZTACALCO - C.D.C. RICARDO FLORES MAGON</ion-select-option>
+          <ion-select-option value="48">Alcaldia: IZTAPALAPA - C.F. 06 IGNACIO MANUEL ALTAMIRANO</ion-select-option>
+          <ion-select-option value="28">Alcaldia: IZTAPALAPA - C.D.C. JOSEFA ORTIZ DE DOMINGUEZ</ion-select-option>
+          <ion-select-option value="26">Alcaldia: IZTAPALAPA - C.D.C. IZTAPALAPA</ion-select-option>
+          <ion-select-option value="40">Alcaldia: IZTAPALAPA - C.D.C. VICENTE GUERRERO</ion-select-option>
+          <ion-select-option value="13">Alcaldia: IZTAPALAPA - C.B.S.U. JUAN ESCUTIA</ion-select-option>
+          <ion-select-option value="21">Alcaldia: IZTAPALAPA - C.D.C. CONSTITUCION DE 1917</ion-select-option>
+          <ion-select-option value="18">Alcaldia: LA MAGDALENA CONTRERAS - C.D.C. ADOLFO RUIZ CORTINES</ion-select-option>
+          <ion-select-option value="10">Alcaldia: MIGUEL HIDALGO - C.B.S.U. ARGENTINA</ion-select-option>
+          <ion-select-option value="41">Alcaldia: MIGUEL HIDALGO - C.D.C. XLIX Legislatura</ion-select-option>
+          <ion-select-option value="31">Alcaldia: MILPA ALTA - C.D.C. MILPA ALTA</ion-select-option>
+          <ion-select-option value="38">Alcaldia: TLAHUAC - C.D.C. TLAHUAC</ion-select-option>
+          <ion-select-option value="33">Alcaldia: TLAHUAC - C.D.C. QUETZALCOATL</ion-select-option>
+          <ion-select-option value="19">Alcaldia: TLALPAN - C.D.C. AJUSCO TLALPAN</ion-select-option>
+          <ion-select-option value="30">Alcaldia: TLALPAN - C.D.C. MIGUEL HIDALGO</ion-select-option>
+          <ion-select-option value="59">Alcaldia: TLALPAN - C.F. 19 JUAN A. MATEOS</ion-select-option>
+          <ion-select-option value="36">Alcaldia: VENUSTIANO CARRANZA - C.D.C. Rosario Castellanos</ion-select-option>
+          <ion-select-option value="17">Alcaldia: VENUSTIANO CARRANZA - C.D.C. ADOLFO LOPEZ MATEOS</ion-select-option>
+          <ion-select-option value="39">Alcaldia: VENUSTIANO CARRANZA - C.D.C. VENUSTIANO CARRANZA</ion-select-option>
+          <ion-select-option value="42">Alcaldia: XOCHIMILCO - C.D.C. XOCHIMILCO</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- <ion-item class="">
         <ion-select interface="action-sheet" placeholder="Álvaro Obregon">
           <ion-select-option value="S">C.D.C. Jalalpa</ion-select-option>
           <ion-select-option value="BP">C.F. 18 Leandro Valle</ion-select-option>
@@ -551,7 +603,7 @@
         <ion-select interface="action-sheet" placeholder="Centro">
           <ion-select-option value="P">C.D.C. Xochimilco</ion-select-option>
         </ion-select>
-      </ion-item>
+      </ion-item> -->
 
       <br><br>
 
