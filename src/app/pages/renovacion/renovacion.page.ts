@@ -30,6 +30,7 @@ export class RenovacionPage implements OnInit {
     nombre_vialidad;
     noext;
     noint;
+    parentesco;
     tipo_asentamiento;
     nombre_asentamiento;
     ecalle;
@@ -53,8 +54,7 @@ export class RenovacionPage implements OnInit {
     sustancia
     qsustancia;
     embarazo;
-    centro;
-  
+    alcaldia;
 
   ngOnInit() {
     console.log(this.tutor)
@@ -92,6 +92,7 @@ export class RenovacionPage implements OnInit {
       ycalle: this.ycalle,
       correo: this.correo,
       cp: this.cp,
+      parentesco: this.parentesco,
       tel_casa: this.tel_casa,
       tel_cel: this.tel_cel,
       tel_recados1: this.tel_recados1,
@@ -105,6 +106,7 @@ export class RenovacionPage implements OnInit {
       actividad: this.actividad,
       beca: this.beca,
       ingresos: this.ingresos,
+      alcaldia: this.alcaldia,
       comp64: this.comprobante,
       const64: this.constancia,
 
