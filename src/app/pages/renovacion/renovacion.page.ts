@@ -14,6 +14,7 @@ import { Camera, CameraOptions,  } from '@awesome-cordova-plugins/camera/ngx';
 })
 export class RenovacionPage implements OnInit {
 
+  today: number = Date.now();
 
   constructor(private APIService: APIService, private alertController: AlertController, public toastController: ToastController, private router: Router, private loadingCtrl: LoadingController,private camera: Camera,) { }
   private tutorialHidden: boolean = true;

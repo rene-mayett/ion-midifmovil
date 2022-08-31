@@ -32,29 +32,41 @@
     <p>Conteste con calma y verifique su información.</p>
   </div>
 
-  <ion-item>
-    <ion-select interface="action-sheet" placeholder="Alcaldía" [(ngModel)]="alcaldia"
-      [ngModelOptions]="{standalone:true}" required>
-      <ion-select-option value="10">Álvaro Obregón</ion-select-option>
-      <ion-select-option value="2">Azcapotzalco</ion-select-option>
-      <ion-select-option value="14">Benito Juárez</ion-select-option>
-      <ion-select-option value="3">Coyoacán</ion-select-option>
-      <ion-select-option value="4">Cuajimalpa</ion-select-option>
-      <ion-select-option value="15">Cuauhtémoc</ion-select-option>
-      <ion-select-option value="5">Gustavo A. Madero</ion-select-option>
-      <ion-select-option value="6">Iztacalco</ion-select-option>
-      <ion-select-option value="7">Iztapalapa</ion-select-option>
-      <ion-select-option value="8">La Magdalena Contreras</ion-select-option>
-      <ion-select-option value="16">Miguel Hidalgo</ion-select-option>
-      <ion-select-option value="9">Milpa Alta</ion-select-option>
-      <ion-select-option value="12">Tlalpan</ion-select-option>
-      <ion-select-option value="17">Venustiano Carranza</ion-select-option>
-      <ion-select-option value="13">Xochimilco</ion-select-option>
-        <ion-select-option value="998">Estado de México</ion-select-option>
-    </ion-select>
-  </ion-item>
+
 
   <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="ion-padding">
+      <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Fecha:
+        <p>{{today | date}}</p>
+      </ion-label>
+      <ion-label class="ion-padding" position="stacked" style="color:#99171e; font-weight: 600; ">Hora:
+        <p>{{today | date:'shortTime'}}</p>
+      </ion-label>
+    </div>
+    <ion-item class="ion-padding">
+      <ion-select interface="action-sheet" placeholder="Alcaldía" [(ngModel)]="alcaldia"
+        [ngModelOptions]="{standalone:true}" required>
+        <ion-select-option value="10">Álvaro Obregón</ion-select-option>
+        <ion-select-option value="2">Azcapotzalco</ion-select-option>
+        <ion-select-option value="14">Benito Juárez</ion-select-option>
+        <ion-select-option value="3">Coyoacán</ion-select-option>
+        <ion-select-option value="4">Cuajimalpa</ion-select-option>
+        <ion-select-option value="15">Cuauhtémoc</ion-select-option>
+        <ion-select-option value="5">Gustavo A. Madero</ion-select-option>
+        <ion-select-option value="6">Iztacalco</ion-select-option>
+        <ion-select-option value="7">Iztapalapa</ion-select-option>
+        <ion-select-option value="8">La Magdalena Contreras</ion-select-option>
+        <ion-select-option value="16">Miguel Hidalgo</ion-select-option>
+        <ion-select-option value="9">Milpa Alta</ion-select-option>
+        <ion-select-option value="12">Tlalpan</ion-select-option>
+        <ion-select-option value="17">Venustiano Carranza</ion-select-option>
+        <ion-select-option value="13">Xochimilco</ion-select-option>
+          <ion-select-option value="998">Estado de México</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
 
     <ion-text class="dorado" style="text-align: center;">
       <h1>1. Datos Generales</h1>
@@ -478,132 +490,6 @@
           <ion-select-option value="42">Alcaldia: XOCHIMILCO - C.D.C. XOCHIMILCO</ion-select-option>
         </ion-select>
       </ion-item>
-
-      <!-- <ion-item class="">
-        <ion-select interface="action-sheet" placeholder="Álvaro Obregon">
-          <ion-select-option value="S">C.D.C. Jalalpa</ion-select-option>
-          <ion-select-option value="BP">C.F. 18 Leandro Valle</ion-select-option>
-        </ion-select>
-        <br><br>
-        <ion-select interface="action-sheet" placeholder="Azcapotzalco">
-          <ion-select-option value="P">C.B.S.U. San Juan Tlihuaca</ion-select-option>
-          <ion-select-option value="P">C.D.C. Pacto Federal</ion-select-option>
-        </ion-select>
-
-        <ion-select interface="action-sheet" placeholder="Benito Juárez">
-          <ion-select-option value="P">Centro Recreativo Niños Héroes</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="CY" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.B.S.U. Ajusco</ion-select-option>
-          <ion-select-option value="P">C.D.C. Adolfo Ruiz Cortines</ion-select-option>
-          <ion-select-option value="S">C.D.C. Familia Juárez Maza</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Francisco I. Madero</ion-select-option>
-          <ion-select-option value="BP">C.F. 17 Jose María Díaz Ordaz</ion-select-option>
-          <ion-select-option value="BP">C.F. 20 Gral. Manuel González Ortega</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item id="CJ" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="BP">C.D.C. José María Morelos y Pavón</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item id="CH" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="BP">C.D.C. República Española</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="GAM" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.B.S.U. Cuautepec</ion-select-option>
-          <ion-select-option value="S">C.B.S.U. Nueva Atzacoalco</ion-select-option>
-          <ion-select-option value="BP">C.B.S.U. Zacatenco</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Álvaro Obregón</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Lázaro Cárdenas</ion-select-option>
-          <ion-select-option value="BP">C.F. 08 Niño Jose Luis Ordaz Lopez</ion-select-option>
-          <ion-select-option value="BP">C.F. 09 Francisco Zarco</ion-select-option>
-          <ion-select-option value="BP">C.F. 11 Miguel Ramos Arizpe</ion-select-option>
-          <ion-select-option value="BP">C.F. 12 Dr. Jose María Luis Mora</ion-select-option>
-          <ion-select-option value="BP">C.F. 13 Matías Romero</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="IZ" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.B.S.U. Benito Juárez</ion-select-option>
-          <ion-select-option value="P">C.D.C. Felipe Carrillo Puerto</ion-select-option>
-          <ion-select-option value="S">C.D.C. Ricardo Flores Magón</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Santa Anita</ion-select-option>
-          <ion-select-option value="BP">C.F. 14 Gral. Juan N. Álvarez</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="IZ" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="S">C.B.S.U. Juan Escutia</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Constitución de 1917</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Iztapalapa Nuevo</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Josefa Ortiz de Domínguez</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Vicente Guerrero</ion-select-option>
-          <ion-select-option value="BP">C.F. 06 Ignacio Manuel Altamirano</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="MG" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.B.S.U. Argentina</ion-select-option>
-          <ion-select-option value="P">C.D.C. XLIX Legislatura</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="MA" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.D.C. Milpa Alta</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="TL" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.D.C. Quetzalcóatl</ion-select-option>
-          <ion-select-option value="P">C.D.C. Tláhuac</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="TLA" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.D.C. Ajusco Tlalpan</ion-select-option>
-          <ion-select-option value="S">C.D.C. Miguel Hidalgo</ion-select-option>
-          <ion-select-option value="BP">C.F. 19 Juan A. Mateos</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-
-      <ion-item id="VC" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.D.C. Adolfo López Mateos</ion-select-option>
-          <ion-select-option value="S">C.D.C. Rosario Castellanos</ion-select-option>
-          <ion-select-option value="BP">C.D.C. Venustiano Carranza</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item id="XC" hidden="true">
-        <ion-select interface="action-sheet" placeholder="Centro">
-          <ion-select-option value="P">C.D.C. Xochimilco</ion-select-option>
-        </ion-select>
-      </ion-item> -->
 
       <br><br>
 
