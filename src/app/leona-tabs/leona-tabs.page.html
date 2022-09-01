@@ -6,19 +6,26 @@
 <ion-header>
 
   <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button class="rojo"></ion-menu-button>
-      </ion-buttons>     
-      <ion-title style="text-align: center;">
-        <img src="assets/header_logo.png" height="45">
-      </ion-title>
-    </ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button class="rojo"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-item [routerDirection]="'root'" [routerLink]="'/contacto'">
+          <ion-icon class="rojo" name="location"></ion-icon>
+        </ion-item>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">
+      <img src="assets/header_logo.png" height="45">
+    </ion-title>
+  </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content>
-  
+
   <img src="assets/portada_beca.png" alt="portada">
 
   <ion-tabs>
@@ -26,19 +33,19 @@
       <ion-tab-button tab="leona-notificaciones">
         <ion-icon name="notifications-outline"></ion-icon>
         <ion-label>Notificaciones</ion-label>
-         <ion-badge color="secondary">1</ion-badge> 
+        <ion-badge color="secondary">1</ion-badge>
       </ion-tab-button>
 
       <ion-tab-button tab="leona-perfil">
         <ion-icon name="person-circle"></ion-icon>
         <ion-label>Perfil</ion-label>
       </ion-tab-button>
-  
+
       <ion-tab-button tab="leona-renovacion">
         <ion-icon name="document-attach-outline"></ion-icon>
         <ion-label>Renovación</ion-label>
       </ion-tab-button>
-  
+
       <ion-tab-button tab="leona-atenciones">
         <ion-icon name="calendar-number-outline"></ion-icon>
         <ion-label>Atenciones</ion-label>

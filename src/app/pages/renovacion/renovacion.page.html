@@ -44,30 +44,6 @@
         <p>{{today | date:'shortTime'}}</p>
       </ion-label>
     </div>
-    <ion-item class="ion-padding">
-      <ion-select interface="action-sheet" placeholder="Seleccione Alcaldía" [(ngModel)]="alcaldia"
-        [ngModelOptions]="{standalone:true}">
-        <ion-select-option value="10">Álvaro Obregón</ion-select-option>
-        <ion-select-option value="2">Azcapotzalco</ion-select-option>
-        <ion-select-option value="14">Benito Juárez</ion-select-option>
-        <ion-select-option value="3">Coyoacán</ion-select-option>
-        <ion-select-option value="4">Cuajimalpa</ion-select-option>
-        <ion-select-option value="15">Cuauhtémoc</ion-select-option>
-        <ion-select-option value="5">Gustavo A. Madero</ion-select-option>
-        <ion-select-option value="6">Iztacalco</ion-select-option>
-        <ion-select-option value="7">Iztapalapa</ion-select-option>
-        <ion-select-option value="8">La Magdalena Contreras</ion-select-option>
-        <ion-select-option value="16">Miguel Hidalgo</ion-select-option>
-        <ion-select-option value="9">Milpa Alta</ion-select-option>
-        <ion-select-option value="12">Tlalpan</ion-select-option>
-        <ion-select-option value="17">Venustiano Carranza</ion-select-option>
-        <ion-select-option value="13">Xochimilco</ion-select-option>
-          <ion-select-option value="998">Estado de México</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-
-
     <ion-text class="dorado" style="text-align: center;">
       <h1>1. Datos Generales</h1>
       <h2>1.1 Beneficiario(a)</h2>
@@ -175,7 +151,7 @@
 
     <div>
       <ion-item>
-        <ion-label>Tipo de vialidad: </ion-label>
+        <ion-label position="stacked" style="color:#99171e; font-weight: 600; " >Tipo de vialidad: </ion-label>
         <ion-select interface="action-sheet" name="vialidad" placeholder="Selecciona" [(ngModel)]="tipo_vialidad"
           [ngModelOptions]="{standalone: true}">
           <ion-select-option value="1">Andador</ion-select-option>
@@ -202,22 +178,22 @@
       </ion-item>
 
       <ion-item lines="full">
-        <ion-label position="floating">Nombre vialidad:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Nombre vialidad:</ion-label>
         <ion-input required type="text" name="vialidad" required [(ngModel)]="nombre_vialidad"
           [ngModelOptions]="{standalone: true}" (ngModelChange)="nombre_vialidad = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">No. Ext:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">No. Ext:</ion-label>
         <ion-input required type="number" name="ext" [(ngModel)]="noext" [ngModelOptions]="{standalone: true}">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">No. Int:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">No. Int:</ion-label>
         <ion-input required type="number" name="int" [(ngModel)]="noint" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Tipo de asentamiento: </ion-label>
+        <ion-label position="stacked" style="color:#99171e; font-weight: 600; ">Tipo de asentamiento: </ion-label>
         <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="tipo_asentamiento"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="BARRIO">Barrio</ion-select-option>
@@ -234,43 +210,65 @@
       </ion-item>
 
       <ion-item lines="full">
-        <ion-label position="floating">Nombre de asentamiento:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Nombre de asentamiento:</ion-label>
         <ion-input type="text" required [(ngModel)]="nombre_asentamiento" [ngModelOptions]="{standalone:true}" (ngModelChange)="nombre_asentamiento = $event.toLocaleUpperCase()">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">Entre calle:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Entre calle:</ion-label>
         <ion-input type="text" required [(ngModel)]="ecalle" [ngModelOptions]="{standalone:true}" (ngModelChange)=" ecalle = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">Y calle:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Y calle:</ion-label>
         <ion-input type="text" required [(ngModel)]="ycalle" [ngModelOptions]="{standalone:true}" (ngModelChange)=" ycalle = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">Correo electronico:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Correo electronico:</ion-label>
         <ion-input type="email" required [(ngModel)]="correo" [ngModelOptions]="{standalone:true}" (ngModelChange)="correo = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">C.P:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">C.P:</ion-label>
         <ion-input type="number" required [(ngModel)]="cp" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label position="stacked" style="color:#99171e; font-weight: 600; ">Alcaldía:</ion-label>
+        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="alcaldia"
+          [ngModelOptions]="{standalone:true}">
+          <ion-select-option value="10">Álvaro Obregón</ion-select-option>
+          <ion-select-option value="2">Azcapotzalco</ion-select-option>
+          <ion-select-option value="14">Benito Juárez</ion-select-option>
+          <ion-select-option value="3">Coyoacán</ion-select-option>
+          <ion-select-option value="4">Cuajimalpa</ion-select-option>
+          <ion-select-option value="15">Cuauhtémoc</ion-select-option>
+          <ion-select-option value="5">Gustavo A. Madero</ion-select-option>
+          <ion-select-option value="6">Iztacalco</ion-select-option>
+          <ion-select-option value="7">Iztapalapa</ion-select-option>
+          <ion-select-option value="8">La Magdalena Contreras</ion-select-option>
+          <ion-select-option value="16">Miguel Hidalgo</ion-select-option>
+          <ion-select-option value="9">Milpa Alta</ion-select-option>
+          <ion-select-option value="12">Tlalpan</ion-select-option>
+          <ion-select-option value="17">Venustiano Carranza</ion-select-option>
+          <ion-select-option value="13">Xochimilco</ion-select-option>
+            <ion-select-option value="998">Estado de México</ion-select-option>
+        </ion-select>
+      </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">Tel. Casa:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Tel. Casa:</ion-label>
         <ion-input type="tel" required [(ngModel)]="tel_casa" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">Tel. Cel:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Tel. Cel:</ion-label>
         <ion-input type="tel" required [(ngModel)]="tel_cel" [ngModelOptions]="{standalone:true}" maxlength="10">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">Tel. Recados 1:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Tel. Recados 1:</ion-label>
         <ion-input type="tel" required [(ngModel)]="tel_recados1" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">Tel. Recados 2:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Tel. Recados 2:</ion-label>
         <ion-input type="tel" required [(ngModel)]="tel_rec2" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
@@ -283,12 +281,12 @@
 
     <div>
       <ion-item lines="full">
-        <ion-label position="floating">Nombre de la escuela:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Nombre de la escuela:</ion-label>
         <ion-input type="text" required [(ngModel)]="nb_escuela" [ngModelOptions]="{standalone:true}" (ngModelChange)="nb_escuela = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Nivel: </ion-label>
+        <ion-label position="stacked" style="color:#99171e; font-weight: 600; ">Nivel: </ion-label>
         <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="id_escolaridad"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="2">PREESCOLAR</ion-select-option>
@@ -300,12 +298,12 @@
         </ion-select>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="floating">Grado°:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Grado°:</ion-label>
         <ion-input type="number" required [(ngModel)]="grado" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Tipo de escuela: </ion-label>
+        <ion-label position="stacked" style="color:#99171e; font-weight: 600; ">Tipo de escuela: </ion-label>
         <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="tipo_escuela"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="Publica">PÚBLICA</ion-select-option>
@@ -314,13 +312,13 @@
       </ion-item>
 
       <ion-item lines="full">
-        <ion-label position="floating">Clave de escuela:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Clave de escuela:</ion-label>
         <ion-input type="text" required [(ngModel)]="clave_escuela" [ngModelOptions]="{standalone:true}">
         </ion-input>
       </ion-item>
 
       <ion-item lines="full">
-        <ion-label position="floating">Teléfono:</ion-label>
+        <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Teléfono:</ion-label>
         <ion-input type="tel" required [(ngModel)]="tel_escuela" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
@@ -328,7 +326,7 @@
       <ion-list>
         <ion-radio-group [(ngModel)]="actividad" [ngModelOptions]="{standalone:true}" >
           <ion-list-header>
-            <ion-label>
+            <ion-label style="color:#99171e; font-weight: 600; ">
               La niña, niño o adolescente ¿realiza actividades extraescolares?:
             </ion-label>
           </ion-list-header>
@@ -348,7 +346,7 @@
       <ion-list>
         <ion-radio-group [(ngModel)]="beca" [ngModelOptions]="{standalone:true}">
           <ion-list-header>
-            <ion-label>
+            <ion-label style="color:#99171e; font-weight: 600; ">
               La niña, niño o adolescente ¿recibe "Mi Beca Para Empezar"?
             </ion-label>
           </ion-list-header>
@@ -373,7 +371,7 @@
     </ion-text>
 
     <ion-item lines="full">
-      <ion-label position="floating">Total de ingreso económico familiar mensual:</ion-label>
+      <ion-label position="floating" position="stacked" style="color:#99171e; font-weight: 600; ">Total de ingreso económico familiar mensual:</ion-label>
       <ion-input type="number" required placeholder="$        (Sin signos de puntuación)" [(ngModel)]="ingresos"
         [ngModelOptions]="{standalone:true}"></ion-input>
     </ion-item>
@@ -387,7 +385,7 @@
       <ion-list>
         <ion-radio-group [(ngModel)]="embarazo" [ngModelOptions]="{standalone:true}">
           <ion-list-header>
-            <ion-label>
+            <ion-label style="color:#99171e; font-weight: 600; ">
               ¿La beneficiaria tiene o ha tenido algún embarazo?
             </ion-label>
           </ion-list-header>
@@ -406,7 +404,7 @@
 
       <ion-radio-group (click)="abrirTutorial()" [(ngModel)]="sustancia" [ngModelOptions]="{standalone:true}">
         <ion-list-header>
-          <ion-label>
+          <ion-label style="color:#99171e; font-weight: 600; ">
             ¿La o el beneficiario ha consumido o es consumidor de alguna sustancia psicoactiva?
           </ion-label>
         </ion-list-header>
@@ -423,7 +421,7 @@
       </ion-radio-group>
 
       <ion-item id="tutorial" hidden="true">
-        <ion-label>¿Cúal?: </ion-label>
+        <ion-label style="color:#99171e; font-weight: 600; ">¿Cúal?: </ion-label>
         <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="qsustancia"
           [ngModelOptions]="{standalone:true}">
           <ion-select-option value="TB">TABACO</ion-select-option>
@@ -436,11 +434,11 @@
       </ion-item>
 
       <ion-list-header>
-        <ion-label>¿A qué Centro DIF le gustaría asistir para realizar actividades culturales y recreativas?</ion-label>
+        <ion-label style="color:#99171e; font-weight: 600; ">¿A qué Centro DIF le gustaría asistir para realizar actividades culturales y recreativas?</ion-label>
       </ion-list-header>
 
       <ion-item>
-        <ion-select interface="action-sheet" placeholder="Seleccione Centro" [(ngModel)]="centros" [ngModelOptions]="{standalone:true}">
+        <ion-select interface="action-sheet" placeholder="Selecciona" [(ngModel)]="centros" [ngModelOptions]="{standalone:true}">
           <ion-select-option value="58">Alcaldia: ALVARO OBREGON - C.F. 18 LEANDRO VALLE</ion-select-option>
           <ion-select-option value="64">Alcaldia: ALVARO OBREGON - C.D.C. JALALPA</ion-select-option>
           <ion-select-option value="32">Alcaldia: AZCAPOTZALCO - C.D.C. PACTO FEDERAL</ion-select-option>
