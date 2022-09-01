@@ -85,10 +85,10 @@ export class LeonaRenovacionPage implements OnInit {
 
   async usuarioyarenovo() {
     const alert = await this.alertController.create({
-      header: '¡Atención!',
+      header: '¡Atención! Información enviada',
       animated: true,
-      subHeader: 'El beneficiario ya ha guardado y enviado sus datos para revisión.',
-      message: 'Ya haz realizado el proceso de renovación...',
+      subHeader: 'El beneficiario ha guardado y enviado sus datos para revisión.',
+      message: 'Ya has realizado el proceso de renovación...',
       buttons: ['OK'],
     });
     await alert.present();

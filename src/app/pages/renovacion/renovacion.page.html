@@ -45,8 +45,8 @@
       </ion-label>
     </div>
     <ion-item class="ion-padding">
-      <ion-select interface="action-sheet" placeholder="Alcaldía" [(ngModel)]="alcaldia"
-        [ngModelOptions]="{standalone:true}" required>
+      <ion-select interface="action-sheet" placeholder="Seleccione Alcaldía" [(ngModel)]="alcaldia"
+        [ngModelOptions]="{standalone:true}">
         <ion-select-option value="10">Álvaro Obregón</ion-select-option>
         <ion-select-option value="2">Azcapotzalco</ion-select-option>
         <ion-select-option value="14">Benito Juárez</ion-select-option>
@@ -173,7 +173,7 @@
       <h1>2. Datos de contacto:</h1>
     </ion-text>
 
-    <form>
+    <div>
       <ion-item>
         <ion-label>Tipo de vialidad: </ion-label>
         <ion-select interface="action-sheet" name="vialidad" placeholder="Selecciona" [(ngModel)]="tipo_vialidad"
@@ -203,17 +203,17 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Nombre vialidad:</ion-label>
-        <ion-input type="text" name="vialidad" required [(ngModel)]="nombre_vialidad"
-          [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-input required type="text" name="vialidad" required [(ngModel)]="nombre_vialidad"
+          [ngModelOptions]="{standalone: true}" (ngModelChange)="nombre_vialidad = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">No. Ext:</ion-label>
-        <ion-input type="email" name="ext" required [(ngModel)]="noext" [ngModelOptions]="{standalone: true}">
+        <ion-input required type="number" name="ext" [(ngModel)]="noext" [ngModelOptions]="{standalone: true}">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">No. Int:</ion-label>
-        <ion-input type="text" name="int" [(ngModel)]="noint" [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-input required type="number" name="int" [(ngModel)]="noint" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -235,56 +235,56 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Nombre de asentamiento:</ion-label>
-        <ion-input type="text" required [(ngModel)]="nombre_asentamiento" [ngModelOptions]="{standalone:true}">
+        <ion-input type="text" required [(ngModel)]="nombre_asentamiento" [ngModelOptions]="{standalone:true}" (ngModelChange)="nombre_asentamiento = $event.toLocaleUpperCase()">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Entre calle:</ion-label>
-        <ion-input type="email" required [(ngModel)]="ecalle" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="text" required [(ngModel)]="ecalle" [ngModelOptions]="{standalone:true}" (ngModelChange)=" ecalle = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Y calle:</ion-label>
-        <ion-input type="text" required [(ngModel)]="ycalle" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="text" required [(ngModel)]="ycalle" [ngModelOptions]="{standalone:true}" (ngModelChange)=" ycalle = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Correo electronico:</ion-label>
-        <ion-input type="text" required [(ngModel)]="correo" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="email" required [(ngModel)]="correo" [ngModelOptions]="{standalone:true}" (ngModelChange)="correo = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">C.P:</ion-label>
-        <ion-input type="email" required [(ngModel)]="cp" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="number" required [(ngModel)]="cp" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tel. Casa:</ion-label>
-        <ion-input type="text" required [(ngModel)]="tel_casa" [ngModelOptions]="{standalone:true}"
+        <ion-input type="tel" required [(ngModel)]="tel_casa" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tel. Cel:</ion-label>
-        <ion-input type="text" required [(ngModel)]="tel_cel" [ngModelOptions]="{standalone:true}" maxlength="10">
+        <ion-input type="tel" required [(ngModel)]="tel_cel" [ngModelOptions]="{standalone:true}" maxlength="10">
         </ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tel. Recados 1:</ion-label>
-        <ion-input type="email" required [(ngModel)]="tel_recados1" [ngModelOptions]="{standalone:true}"
+        <ion-input type="tel" required [(ngModel)]="tel_recados1" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Tel. Recados 2:</ion-label>
-        <ion-input type="text" required [(ngModel)]="tel_rec2" [ngModelOptions]="{standalone:true}"
+        <ion-input type="tel" required [(ngModel)]="tel_rec2" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
-    </form>
+    </div>
 
     <br><br>
     <ion-text class="dorado" style="text-align: center;">
       <h1>3. Datos escolares:</h1>
     </ion-text>
 
-    <form>
+    <div>
       <ion-item lines="full">
         <ion-label position="floating">Nombre de la escuela:</ion-label>
-        <ion-input type="text" required [(ngModel)]="nb_escuela" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="text" required [(ngModel)]="nb_escuela" [ngModelOptions]="{standalone:true}" (ngModelChange)="nb_escuela = $event.toLocaleUpperCase()"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -301,7 +301,7 @@
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Grado°:</ion-label>
-        <ion-input type="text" required [(ngModel)]="grado" [ngModelOptions]="{standalone:true}"></ion-input>
+        <ion-input type="number" required [(ngModel)]="grado" [ngModelOptions]="{standalone:true}"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -321,12 +321,12 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Teléfono:</ion-label>
-        <ion-input type="text" required [(ngModel)]="tel_escuela" [ngModelOptions]="{standalone:true}"
+        <ion-input type="tel" required [(ngModel)]="tel_escuela" [ngModelOptions]="{standalone:true}"
           maxlength="10"></ion-input>
       </ion-item>
 
       <ion-list>
-        <ion-radio-group [(ngModel)]="actividad" [ngModelOptions]="{standalone:true}">
+        <ion-radio-group [(ngModel)]="actividad" [ngModelOptions]="{standalone:true}" >
           <ion-list-header>
             <ion-label>
               La niña, niño o adolescente ¿realiza actividades extraescolares?:
@@ -364,7 +364,7 @@
           </ion-item>
         </ion-radio-group>
       </ion-list>
-    </form>
+    </div>
 
     <br><br>
     <ion-text class="dorado" style="text-align: center;">
@@ -440,8 +440,7 @@
       </ion-list-header>
 
       <ion-item>
-        <ion-select interface="action-sheet" placeholder="Centros" [(ngModel)]="alcaldia"
-          [ngModelOptions]="{standalone:true}" required>
+        <ion-select interface="action-sheet" placeholder="Seleccione Centro" [(ngModel)]="centros" [ngModelOptions]="{standalone:true}">
           <ion-select-option value="58">Alcaldia: ALVARO OBREGON - C.F. 18 LEANDRO VALLE</ion-select-option>
           <ion-select-option value="64">Alcaldia: ALVARO OBREGON - C.D.C. JALALPA</ion-select-option>
           <ion-select-option value="32">Alcaldia: AZCAPOTZALCO - C.D.C. PACTO FEDERAL</ion-select-option>
@@ -475,7 +474,7 @@
           <ion-select-option value="40">Alcaldia: IZTAPALAPA - C.D.C. VICENTE GUERRERO</ion-select-option>
           <ion-select-option value="13">Alcaldia: IZTAPALAPA - C.B.S.U. JUAN ESCUTIA</ion-select-option>
           <ion-select-option value="21">Alcaldia: IZTAPALAPA - C.D.C. CONSTITUCION DE 1917</ion-select-option>
-          <ion-select-option value="18">Alcaldia: LA MAGDALENA CONTRERAS - C.D.C. ADOLFO RUIZ CORTINES</ion-select-option>
+          <ion-select-option value="18">Alcaldia: COYOACAN - C.D.C. ADOLFO RUIZ CORTINES</ion-select-option>
           <ion-select-option value="10">Alcaldia: MIGUEL HIDALGO - C.B.S.U. ARGENTINA</ion-select-option>
           <ion-select-option value="41">Alcaldia: MIGUEL HIDALGO - C.D.C. XLIX Legislatura</ion-select-option>
           <ion-select-option value="31">Alcaldia: MILPA ALTA - C.D.C. MILPA ALTA</ion-select-option>
@@ -529,7 +528,7 @@
       </ion-item>
       <br>
       <div class="container" style="text-align: center;">
-        <b>RECUERDA CAPTURAR CORRECTAMENTE Y REVISAR TUS DATOS YA QUE AL GUARDAR LA INFORMACIÓN NO PODRÁS CORREGIRLA
+        <b>RECUERDA CAPTURAR CORRECTAMENTE Y REVISAR BIEN TODOS LOS DATOS YA QUE AL GUARDAR LA INFORMACIÓN NO PODRÁS CORREGIRLA
         </b>
       </div>
       <br><br><br>
@@ -538,5 +537,4 @@
       Finalizar Renovación
     </ion-button>
   </form>
-
 </ion-content>

@@ -77,6 +77,7 @@ export class RenovacionPage implements OnInit {
       (err) => {
         console.log(err);
         this.errorAlert();
+        this.router.navigate(['leona-tabs'],);
       });
 
   }
@@ -114,8 +115,10 @@ export class RenovacionPage implements OnInit {
       const64: this.constancia,
       sustancia: this.sustancia,
       qsustancia: this.qsustancia,
-      embarazo: this.embarazo
+      embarazo: this.embarazo,
+
     }
+
     this.cargando();
     this.APIService.renovacionBene(datos).subscribe(res => {
       this.guardoRenovacion();
@@ -123,7 +126,8 @@ export class RenovacionPage implements OnInit {
     },
       (err) => {
         console.log(err);
-        this.errorAlert();
+        this.errorGuardar();
+        this.router.navigate(['leona-tabs'],);
       });
       
   }
@@ -168,6 +172,16 @@ export class RenovacionPage implements OnInit {
       header: 'Error 503',
       subHeader: 'Error durante la conexión ',
       message: 'No se puede conectar con el servidor',
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
+
+  async errorGuardar() {
+    const alert = await this.alertController.create({
+      header: 'Uuups... Algo salio mal',
+      subHeader: 'Consejo:  Antes de guardar, verifica que NO falte ningun dato por llenar',
+      message: 'No pudimos guardar tus datos. Intenta de nuevo por favor.',
       buttons: ['OK'],
     });
     await alert.present();
